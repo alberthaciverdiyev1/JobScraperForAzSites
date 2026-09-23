@@ -3,6 +3,9 @@
 # (böylece 3 koşu da 08:00-21:00 aralığında kalır).
 set -euo pipefail
 cd "$(dirname "$0")/.."
+export NVM_DIR="${NVM_DIR:-$HOME/.nvm}"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" && nvm use 22 >/dev/null 2>&1 || true
+
 mkdir -p logs
 LOG=logs/baku-cron.log
 # 08:00..13:00 arası rastgele başlangıç saati (0..5 offset)

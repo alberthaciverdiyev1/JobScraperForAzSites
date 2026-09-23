@@ -2,6 +2,9 @@
 # boss.az'ı gün boyu yavaş süpürme (cron için). Log: logs/boss-cron.log
 set -euo pipefail
 cd "$(dirname "$0")/.."
+export NVM_DIR="${NVM_DIR:-$HOME/.nvm}"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" && nvm use 22 >/dev/null 2>&1 || true
+
 mkdir -p logs
 {
   echo "=== $(date -Is) boss tarama başlıyor ==="
