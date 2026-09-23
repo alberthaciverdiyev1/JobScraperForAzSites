@@ -63,10 +63,17 @@ try {
                 [s.source, s.source.replace('.az', ''), s.region, s.lastRunAt, s.fetched, s.ready, s.inserted, s.duplicates, s.skipped, s.errors, s.report]);
         }
         if (perSource.length) {
-            await client.query(`
+            const run = await client.query<{ id: string }>(`
                 INSERT INTO public.scraper_runs (started_at, finished_at, region, mode, fetched, ready, inserted, duplicates, skipped, errors, created_at, updated_at)
-                VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,NOW(),NOW())`,
+                VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,NOW(),NOW()) RETURNING id`,
                 [new Date(minStart).toISOString(), new Date(maxFinish).toISOString(), region, mode, runFetched, runInserted + runDup, runInserted, runDup, runSkipped, runErrors]);
+            const runId = run.rows[0]!.id;
+            for (const s of perSource) {
+                await client.query(`
+                    INSERT INTO public.scraper_source_runs (scraper_run_id, source, run_at, fetched, ready, inserted, duplicates, skipped, errors, created_at, updated_at)
+                    VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,NOW(),NOW())`,
+                    [runId, s.source, s.lastRunAt, s.fetched, s.ready, s.inserted, s.duplicates, s.skipped, s.errors]);
+            }
         }
         try {
             const schedule = JSON.parse(await readFile(resolve('config/scrape-schedule.json'), 'utf8'));
