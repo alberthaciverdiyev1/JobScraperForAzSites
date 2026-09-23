@@ -17,3 +17,6 @@ for i in 1 2 3; do
   npm run scrape:baku >> "$LOG" 2>&1 || true
   [ "$i" -lt 3 ] && sleep $((4 * 3600))
 done
+
+# Logoları canlı uygulamanın public/scraped-companies dizinine kopyala (ayarlıysa)
+[ -n "${COMPANY_LOGO_PUBLISH_DIR:-}" ] && ./scripts/publish-logos.sh "$COMPANY_LOGO_PUBLISH_DIR" || true

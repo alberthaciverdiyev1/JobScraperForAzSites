@@ -11,3 +11,6 @@ mkdir -p logs
   npm run scrape:boss -- --region all --write
   echo "=== $(date -Is) boss tarama bitti (exit $?) ==="
 } >> logs/boss-cron.log 2>&1
+
+# Logoları canlı uygulamanın public/scraped-companies dizinine kopyala (ayarlıysa)
+[ -n "${COMPANY_LOGO_PUBLISH_DIR:-}" ] && ./scripts/publish-logos.sh "$COMPANY_LOGO_PUBLISH_DIR" || true
