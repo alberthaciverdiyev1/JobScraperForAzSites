@@ -12,6 +12,9 @@ mkdir -p logs
   echo "=== $(date -Is) boss tarama bitti (exit $?) ==="
 } >> logs/boss-cron.log 2>&1
 
+# Mükerrer ilanları sil (aynı URL veya şirket+başlık+şehir)
+npm run dedupe:write >> logs/dedupe.log 2>&1 || true
+
 # Varsayılan/placeholder logoları ayıkla ve yolları güncelle
 npm run logos:sync:write >> logs/logos.log 2>&1 || true
 
