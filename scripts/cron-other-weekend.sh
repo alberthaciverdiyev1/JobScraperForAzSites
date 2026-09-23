@@ -8,6 +8,9 @@ export NVM_DIR="${NVM_DIR:-$HOME/.nvm}"
 mkdir -p logs
 { echo "=== $(date -Is) diğer şehirler (region=other) ==="; npm run scrape:other; } >> logs/other-cron.log 2>&1 || true
 
+# Scraper durumunu Jobing admini icin DB ye yaz
+npm run status:push >> logs/status.log 2>&1 || true
+
 # Mükerrer ilanları sil (aynı URL veya şirket+başlık+şehir)
 npm run dedupe:write >> logs/dedupe.log 2>&1 || true
 

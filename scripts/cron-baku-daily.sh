@@ -18,6 +18,9 @@ for i in 1 2 3; do
   [ "$i" -lt 3 ] && sleep $((4 * 3600))
 done
 
+# Scraper durumunu Jobing admini icin DB ye yaz
+npm run status:push >> logs/status.log 2>&1 || true
+
 # Mükerrer ilanları sil (aynı URL veya şirket+başlık+şehir)
 npm run dedupe:write >> logs/dedupe.log 2>&1 || true
 
