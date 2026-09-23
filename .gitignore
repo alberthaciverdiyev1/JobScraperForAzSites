@@ -1,0 +1,16 @@
+node_modules/
+dist/
+.env
+.env.*
+!.env.example
+*.log
+data/
+logs/
+.idea/
+.vscode/
+
+# AI asistan dosyalari
+CLAUDE.md
+AGENTS.md
+.claudeignore
+.claude/

@@ -1,0 +1,26 @@
+{
+  "enabled": true,
+  "timezone": "Asia/Baku",
+  "baku": {
+    "frequency": "daily",
+    "runsPerDay": 3,
+    "gapHours": 4,
+    "randomStartHours": "08:00-13:00",
+    "via": "scripts/cron-baku-daily.sh",
+    "window": "Tüm koşular 08:00-21:00 arasında (aralık 4 saat)"
+  },
+  "otherCities": {
+    "frequency": "weekly",
+    "weekday": "SATURDAY",
+    "time": "21:00",
+    "via": "scripts/cron-other-weekend.sh"
+  },
+  "pending": "Kullanıcı saatleri belirleyecek. Önerilen saatleri kabul etmedi; henüz zamanlama etkin değil.",
+  "boss": {
+    "frequency": "daily",
+    "runsPerDay": 1,
+    "mode": "slow",
+    "via": "scripts/cron-boss.sh",
+    "note": "Ayarlar: SCRAPE_INTERVAL_BOSS_MS, SCRAPE_RETRY_BASE_BOSS_MS"
+  }
+}

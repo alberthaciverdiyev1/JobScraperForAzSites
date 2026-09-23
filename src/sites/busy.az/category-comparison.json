@@ -1,0 +1,1492 @@
+{
+  "checkedAt": "2026-09-22T12:55:04.045Z",
+  "source": "https://busy.az/api/bff/api/filter/categories",
+  "scope": "Öneri raporu; otomatik sınıflandırma veya DB değişikliği yapılmadı.",
+  "counts": {
+    "busyParents": 15,
+    "busyChildren": 64,
+    "localParents": 17,
+    "localChildren": 119
+  },
+  "categories": [
+    {
+      "sourceId": 19,
+      "sourceName": "Satış, Pərakəndə və Müştəri xidmətləri",
+      "sourceSlug": "sales-retail-customer-support",
+      "targetCandidates": [
+        {
+          "id": "56",
+          "name": "Satış və müştəri xidməti",
+          "parentId": null
+        }
+      ],
+      "subcategories": [
+        {
+          "sourceId": 168,
+          "sourceName": "Satışın idarəedilməsi",
+          "sourceSlug": "sales-management",
+          "status": "role-dependent",
+          "targetCandidates": [
+            {
+              "id": "58",
+              "name": "Satış meneceri",
+              "parentId": "56"
+            },
+            {
+              "id": "65",
+              "name": "Satış şöbəsinin rəhbəri",
+              "parentId": "56"
+            }
+          ],
+          "note": "Menecer ve bölüm rəhbəri ayrımı ilan başlığından yapılmalı."
+        },
+        {
+          "sourceId": 110,
+          "sourceName": "Pərakəndə satış",
+          "sourceSlug": "retail-sales",
+          "status": "role-dependent",
+          "targetCandidates": [
+            {
+              "id": "57",
+              "name": "Satış üzrə mütəxəssis",
+              "parentId": "56"
+            },
+            {
+              "id": "59",
+              "name": "Satış məsləhətçisi",
+              "parentId": "56"
+            },
+            {
+              "id": "64",
+              "name": "Kassir-operator",
+              "parentId": "56"
+            },
+            {
+              "id": "66",
+              "name": "Filial rəhbəri / Mağaza rəhbəri",
+              "parentId": "56"
+            }
+          ],
+          "note": "Satıcı, kassir ve mağaza rəhbəri farklı alt kategoriler."
+        },
+        {
+          "sourceId": 37,
+          "sourceName": "Müştəri xidmətləri",
+          "sourceSlug": "customer-support",
+          "status": "role-dependent",
+          "targetCandidates": [
+            {
+              "id": "60",
+              "name": "Müştəri meneceri",
+              "parentId": "56"
+            },
+            {
+              "id": "61",
+              "name": "Çağrı mərkəzi operatoru",
+              "parentId": "56"
+            },
+            {
+              "id": "98",
+              "name": "Çağrı mərkəzi operatoru, müştəri xidmətləri mütəxəssisi",
+              "parentId": "91"
+            }
+          ],
+          "note": "Müştəri meneceri ve çağrı mərkəzi ayrılmalı; 61 ve 98 benzer kapsamlı."
+        },
+        {
+          "sourceId": 171,
+          "sourceName": "Biznesin İnkişafı",
+          "sourceSlug": "business-development",
+          "status": "gap",
+          "targetCandidates": [],
+          "note": "Biznesin inkişafı için özel alt kategori yok; satış otomatik seçilmemeli."
+        },
+        {
+          "sourceId": 73,
+          "sourceName": "Daşınmaz əmlak satışı",
+          "sourceSlug": "real-estate-sales",
+          "status": "close",
+          "targetCandidates": [
+            {
+              "id": "63",
+              "name": "Daşınmaz əmlak agenti / makler",
+              "parentId": "56"
+            }
+          ],
+          "note": "Daşınmaz əmlak agenti / makler."
+        }
+      ]
+    },
+    {
+      "sourceId": 7,
+      "sourceName": "Maliyyə, Bankçılıq və Sığorta",
+      "sourceSlug": "finance-banking-insurance",
+      "targetCandidates": [
+        {
+          "id": "26",
+          "name": "Maliyyə və Mühasibatlıq",
+          "parentId": null
+        },
+        {
+          "id": "56",
+          "name": "Satış və müştəri xidməti",
+          "parentId": null
+        }
+      ],
+      "subcategories": [
+        {
+          "sourceId": 31,
+          "sourceName": "Maliyyə idarəetməsi və təhlili",
+          "sourceSlug": "financial-management-analysis",
+          "status": "role-dependent",
+          "targetCandidates": [
+            {
+              "id": "30",
+              "name": "Maliyyə analitiki / İnvestisiya analitiki",
+              "parentId": "26"
+            },
+            {
+              "id": "33",
+              "name": "Maliyyə meneceri",
+              "parentId": "26"
+            },
+            {
+              "id": "37",
+              "name": "Maliyyə direktoru (CFO)",
+              "parentId": "26"
+            }
+          ],
+          "note": "Analitik, menecer ve CFO ayrılmalı."
+        },
+        {
+          "sourceId": 26,
+          "sourceName": "Mühasibat uçotu",
+          "sourceSlug": "accounting",
+          "status": "close",
+          "targetCandidates": [
+            {
+              "id": "29",
+              "name": "Mühasib",
+              "parentId": "26"
+            }
+          ],
+          "note": "Mühasib."
+        },
+        {
+          "sourceId": 61,
+          "sourceName": "Audit və Vergi",
+          "sourceSlug": "audit-tax",
+          "status": "partial",
+          "targetCandidates": [
+            {
+              "id": "28",
+              "name": "Auditor",
+              "parentId": "26"
+            },
+            {
+              "id": "29",
+              "name": "Mühasib",
+              "parentId": "26"
+            }
+          ],
+          "note": "Auditor var; vergi uzmanı için özel kategori yok."
+        },
+        {
+          "sourceId": 64,
+          "sourceName": "Bank əməliyyatları",
+          "sourceSlug": "banking-operations",
+          "status": "partial",
+          "targetCandidates": [
+            {
+              "id": "27",
+              "name": "Kredit mütəxəssisi",
+              "parentId": "26"
+            },
+            {
+              "id": "31",
+              "name": "Kassir",
+              "parentId": "26"
+            },
+            {
+              "id": "38",
+              "name": "Digər",
+              "parentId": "26"
+            }
+          ],
+          "note": "Kredi ve kassir var; bütün bankacılık operasyonlarını karşılamaz."
+        },
+        {
+          "sourceId": 114,
+          "sourceName": "Sığorta",
+          "sourceSlug": "insurance",
+          "status": "partial",
+          "targetCandidates": [
+            {
+              "id": "62",
+              "name": "Sığorta agenti",
+              "parentId": "56"
+            }
+          ],
+          "note": "Sığorta agenti yalnızca satış rolünü karşılar."
+        }
+      ]
+    },
+    {
+      "sourceId": 116,
+      "sourceName": "Mühəndislik və Texniki sahələr",
+      "sourceSlug": "engineering-technical",
+      "targetCandidates": [
+        {
+          "id": "132",
+          "name": "Sənaye, tikinti və istehsalat",
+          "parentId": null
+        },
+        {
+          "id": "85",
+          "name": "Kənd təsərrüfatı",
+          "parentId": null
+        }
+      ],
+      "subcategories": [
+        {
+          "sourceId": 72,
+          "sourceName": "Mülki və Tikinti mühəndisliyi",
+          "sourceSlug": "civil-construction-engineering",
+          "status": "close",
+          "targetCandidates": [
+            {
+              "id": "134",
+              "name": "Tikinti mühəndisliyi və ustalıq",
+              "parentId": "132"
+            }
+          ],
+          "note": "Tikinti mühəndisliyi."
+        },
+        {
+          "sourceId": 174,
+          "sourceName": "Maşınqayırma (mexanika) mühəndisliyi",
+          "sourceSlug": "mechanical-engineering",
+          "status": "broader",
+          "targetCandidates": [
+            {
+              "id": "135",
+              "name": "Mühəndis",
+              "parentId": "132"
+            }
+          ],
+          "note": "Genel mühendis kategorisi mekanik mühendisliğini kapsar."
+        },
+        {
+          "sourceId": 122,
+          "sourceName": "Elektrik, Elektronika və Avtomatlaşdırma",
+          "sourceSlug": "electrical-electronics-automation",
+          "status": "role-dependent",
+          "targetCandidates": [
+            {
+              "id": "133",
+              "name": "Avtomatlaşdırılmış idarəetmə (АСУ ТП)",
+              "parentId": "132"
+            },
+            {
+              "id": "135",
+              "name": "Mühəndis",
+              "parentId": "132"
+            },
+            {
+              "id": "142",
+              "name": "Elektrik",
+              "parentId": "132"
+            }
+          ],
+          "note": "Otomasyon, mühendis ve elektrik ustası ayrılmalı."
+        },
+        {
+          "sourceId": 177,
+          "sourceName": "Sənaye, Kimya və Proses mühəndisliyi",
+          "sourceSlug": "industrial-chemical-process-engineering",
+          "status": "broader",
+          "targetCandidates": [
+            {
+              "id": "135",
+              "name": "Mühəndis",
+              "parentId": "132"
+            }
+          ],
+          "note": "Kimya/proses için ayrı alt kategori yok; genel mühendis var."
+        },
+        {
+          "sourceId": 119,
+          "sourceName": "Neft-qaz və Geologiya",
+          "sourceSlug": "oil-gas-geology",
+          "status": "partial",
+          "targetCandidates": [
+            {
+              "id": "87",
+              "name": "Geologiya və ətraf mühit",
+              "parentId": "85"
+            },
+            {
+              "id": "135",
+              "name": "Mühəndis",
+              "parentId": "132"
+            }
+          ],
+          "note": "Jeoloji ve genel mühendislik var; neft-qaz özel kategorisi yok."
+        },
+        {
+          "sourceId": 147,
+          "sourceName": "Ətraf mühit və Əməyin mühafizəsi",
+          "sourceSlug": "environmental-hse",
+          "status": "partial",
+          "targetCandidates": [
+            {
+              "id": "87",
+              "name": "Geologiya və ətraf mühit",
+              "parentId": "85"
+            }
+          ],
+          "note": "Çevre kısmı var; HSE/iş güvenliği özel kategorisi yok."
+        },
+        {
+          "sourceId": 142,
+          "sourceName": "İxtisaslı fəhlə və Texniki peşələr",
+          "sourceSlug": "skilled-trades-technicians",
+          "status": "role-dependent",
+          "targetCandidates": [
+            {
+              "id": "136",
+              "name": "Avtomexanik, avtoçilingər",
+              "parentId": "132"
+            },
+            {
+              "id": "137",
+              "name": "Suvaqçı, rəngsaz",
+              "parentId": "132"
+            },
+            {
+              "id": "138",
+              "name": "Mexanik",
+              "parentId": "132"
+            },
+            {
+              "id": "139",
+              "name": "Montajçı",
+              "parentId": "132"
+            },
+            {
+              "id": "140",
+              "name": "Qaynaqçı",
+              "parentId": "132"
+            },
+            {
+              "id": "141",
+              "name": "Çilingər, santexnik",
+              "parentId": "132"
+            },
+            {
+              "id": "142",
+              "name": "Elektrik",
+              "parentId": "132"
+            },
+            {
+              "id": "143",
+              "name": "Usta",
+              "parentId": "132"
+            }
+          ],
+          "note": "Ustalık dalı ilan içeriğinden seçilmeli."
+        },
+        {
+          "sourceId": 180,
+          "sourceName": "Mühəndislik dəstəyi",
+          "sourceSlug": "engineering-support",
+          "status": "partial",
+          "targetCandidates": [
+            {
+              "id": "135",
+              "name": "Mühəndis",
+              "parentId": "132"
+            },
+            {
+              "id": "138",
+              "name": "Mexanik",
+              "parentId": "132"
+            }
+          ],
+          "note": "Teknik destek rolüne göre değişir."
+        }
+      ]
+    },
+    {
+      "sourceId": 18,
+      "sourceName": "Satınalma və Təchizat zənciri",
+      "sourceSlug": "procurement-supply-chain",
+      "targetCandidates": [
+        {
+          "id": "144",
+          "name": "Satınalma və təchizat",
+          "parentId": null
+        },
+        {
+          "id": "126",
+          "name": "Nəqliyyat, daşınma və logistika",
+          "parentId": null
+        }
+      ],
+      "subcategories": [
+        {
+          "sourceId": 150,
+          "sourceName": "Satınalma və Tədarük",
+          "sourceSlug": "procurement-purchasing",
+          "status": "role-dependent",
+          "targetCandidates": [
+            {
+              "id": "145",
+              "name": "Tender mütəxəssisi",
+              "parentId": "144"
+            },
+            {
+              "id": "146",
+              "name": "Satınalma meneceri",
+              "parentId": "144"
+            },
+            {
+              "id": "148",
+              "name": "Bayer / Alıcı",
+              "parentId": "144"
+            },
+            {
+              "id": "149",
+              "name": "Təchizat mütəxəssisi",
+              "parentId": "144"
+            },
+            {
+              "id": "151",
+              "name": "Satınalma direktoru",
+              "parentId": "144"
+            }
+          ],
+          "note": "Satınalma, tender, alıcı, təchizat ve rəhbərlik ayrılmalı."
+        },
+        {
+          "sourceId": 183,
+          "sourceName": "Təchizat zəncirinin planlaşdırılması",
+          "sourceSlug": "supply-chain-planning",
+          "status": "broader",
+          "targetCandidates": [
+            {
+              "id": "149",
+              "name": "Təchizat mütəxəssisi",
+              "parentId": "144"
+            }
+          ],
+          "note": "Planlama için özel alt kategori yok; təchizat uzmanı en yakın."
+        },
+        {
+          "sourceId": 132,
+          "sourceName": "Logistika və Nəqliyyat",
+          "sourceSlug": "logistics-transportation",
+          "status": "role-dependent",
+          "targetCandidates": [
+            {
+              "id": "131",
+              "name": "Logistika üzrə mütəxəssis / Menecer",
+              "parentId": "126"
+            },
+            {
+              "id": "127",
+              "name": "Sürücü",
+              "parentId": "126"
+            },
+            {
+              "id": "130",
+              "name": "Kuryer",
+              "parentId": "126"
+            },
+            {
+              "id": "150",
+              "name": "İdxal mütəxəssisi",
+              "parentId": "144"
+            }
+          ],
+          "note": "Lojistik, sürücü, kuryer ve ithalat ayrılmalı."
+        },
+        {
+          "sourceId": 94,
+          "sourceName": "Anbar əməliyyatları",
+          "sourceSlug": "warehouse-operations",
+          "status": "role-dependent",
+          "targetCandidates": [
+            {
+              "id": "128",
+              "name": "Anbardar",
+              "parentId": "126"
+            },
+            {
+              "id": "97",
+              "name": "Anbardar",
+              "parentId": "91"
+            },
+            {
+              "id": "129",
+              "name": "Yükvuran fəhlə",
+              "parentId": "126"
+            }
+          ],
+          "note": "Anbardar için 128/97 tekrarı var; yükleme işçisi farklı."
+        },
+        {
+          "sourceId": 40,
+          "sourceName": "Sürücülük",
+          "sourceSlug": "driving",
+          "status": "close",
+          "targetCandidates": [
+            {
+              "id": "127",
+              "name": "Sürücü",
+              "parentId": "126"
+            }
+          ],
+          "note": "Sürücü."
+        }
+      ]
+    },
+    {
+      "sourceId": 25,
+      "sourceName": "Biznes, İdarəetmə və İnsan Resursları",
+      "sourceSlug": "business-administration-hr",
+      "targetCandidates": [
+        {
+          "id": "47",
+          "name": "İnzibati heyət",
+          "parentId": null
+        }
+      ],
+      "subcategories": [
+        {
+          "sourceId": 186,
+          "sourceName": "İnzibati İdarəetmə",
+          "sourceSlug": "executive-management",
+          "status": "broader",
+          "targetCandidates": [
+            {
+              "id": "49",
+              "name": "Menecment",
+              "parentId": "47"
+            }
+          ],
+          "note": "Genel menecment."
+        },
+        {
+          "sourceId": 189,
+          "sourceName": "Əməliyyatların idarə edilməsi",
+          "sourceSlug": "operations-management",
+          "status": "broader",
+          "targetCandidates": [
+            {
+              "id": "49",
+              "name": "Menecment",
+              "parentId": "47"
+            }
+          ],
+          "note": "Operasyon yönetimi ayrı değil."
+        },
+        {
+          "sourceId": 109,
+          "sourceName": "Layihə və Proqram idarəetməsi",
+          "sourceSlug": "project-program-management",
+          "status": "partial",
+          "targetCandidates": [
+            {
+              "id": "44",
+              "name": "İT layihələrin idarə edilməsi",
+              "parentId": "39"
+            },
+            {
+              "id": "49",
+              "name": "Menecment",
+              "parentId": "47"
+            }
+          ],
+          "note": "44 sadece IT projeleri; IT dışı proje yöneticiliği ayrı değil."
+        },
+        {
+          "sourceId": 11,
+          "sourceName": "İnsan resursları və İşəqəbul",
+          "sourceSlug": "talent-acquisition-hr",
+          "status": "close",
+          "targetCandidates": [
+            {
+              "id": "52",
+              "name": "Heyətin idarəolunması",
+              "parentId": "47"
+            }
+          ],
+          "note": "Heyətin idarəolunması."
+        },
+        {
+          "sourceId": 41,
+          "sourceName": "Ofis inzibatçılığı",
+          "sourceSlug": "office-administration",
+          "status": "role-dependent",
+          "targetCandidates": [
+            {
+              "id": "48",
+              "name": "İnzibati dəstək",
+              "parentId": "47"
+            },
+            {
+              "id": "50",
+              "name": "Ofis meneceri",
+              "parentId": "47"
+            },
+            {
+              "id": "51",
+              "name": "Katibə, resepşn, köməkçi",
+              "parentId": "47"
+            },
+            {
+              "id": "53",
+              "name": "Administrator",
+              "parentId": "47"
+            }
+          ],
+          "note": "Ofis meneceri, katibə ve administrator ayrılmalı."
+        }
+      ]
+    },
+    {
+      "sourceId": 12,
+      "sourceName": "İT, Proqram təminatı və Məlumat analitikası",
+      "sourceSlug": "it-software-data",
+      "targetCandidates": [
+        {
+          "id": "39",
+          "name": "İnformasiya texnologiyaları",
+          "parentId": null
+        }
+      ],
+      "subcategories": [
+        {
+          "sourceId": 90,
+          "sourceName": "Proqram təminatı",
+          "sourceSlug": "software-development",
+          "status": "close",
+          "targetCandidates": [
+            {
+              "id": "40",
+              "name": "Proqramlaşdırma",
+              "parentId": "39"
+            }
+          ],
+          "note": "Proqramlaşdırma."
+        },
+        {
+          "sourceId": 92,
+          "sourceName": "Sistem inzibatçılığı",
+          "sourceSlug": "systems-administration",
+          "status": "close",
+          "targetCandidates": [
+            {
+              "id": "41",
+              "name": "Sistem idarəetməsi",
+              "parentId": "39"
+            }
+          ],
+          "note": "Sistem idarəetməsi."
+        },
+        {
+          "sourceId": 91,
+          "sourceName": "IT Helpdesk",
+          "sourceSlug": "it-helpdesk",
+          "status": "role-dependent",
+          "targetCandidates": [
+            {
+              "id": "43",
+              "name": "İT mütəxəssisi / məsləhətçi",
+              "parentId": "39"
+            },
+            {
+              "id": "45",
+              "name": "Texniki avadanlıq mütəxəssisi",
+              "parentId": "39"
+            }
+          ],
+          "note": "IT uzmanı ve donanım desteği ayrılmalı."
+        },
+        {
+          "sourceId": 105,
+          "sourceName": "Məlumat analitikası",
+          "sourceSlug": "data-analytics",
+          "status": "gap",
+          "targetCandidates": [],
+          "note": "Məlumat analitikası/Data Analyst özel kategorisi yok; DBA ile aynı iş değil."
+        },
+        {
+          "sourceId": 85,
+          "sourceName": "Kibertəhlükəsizlik",
+          "sourceSlug": "cybersecurity",
+          "status": "gap",
+          "targetCandidates": [],
+          "note": "Kibertəhlükəsizlik özel kategorisi yok."
+        }
+      ]
+    },
+    {
+      "sourceId": 23,
+      "sourceName": "Otel, İaşə və Turizm",
+      "sourceSlug": "hospitality-catering-tourism",
+      "targetCandidates": [
+        {
+          "id": "109",
+          "name": "Turizm, otellər, restoranlar",
+          "parentId": null
+        },
+        {
+          "id": "119",
+          "name": "İdman zalları, fitness, gözəllik salonları",
+          "parentId": null
+        }
+      ],
+      "subcategories": [
+        {
+          "sourceId": 129,
+          "sourceName": "Otel idarəetməsi",
+          "sourceSlug": "hotel-management",
+          "status": "role-dependent",
+          "targetCandidates": [
+            {
+              "id": "111",
+              "name": "Turizm və mehmanxana işi",
+              "parentId": "109"
+            },
+            {
+              "id": "116",
+              "name": "Administrator (Otel / Restoran)",
+              "parentId": "109"
+            }
+          ],
+          "note": "Otel operasyonları ve administrator ayrılmalı."
+        },
+        {
+          "sourceId": 95,
+          "sourceName": "İaşə və Qida Xidmətləri",
+          "sourceSlug": "food-service",
+          "status": "role-dependent",
+          "targetCandidates": [
+            {
+              "id": "110",
+              "name": "Restoran işi",
+              "parentId": "109"
+            },
+            {
+              "id": "113",
+              "name": "Restoran meneceri",
+              "parentId": "109"
+            },
+            {
+              "id": "114",
+              "name": "Ofisiant, barmen, barista",
+              "parentId": "109"
+            },
+            {
+              "id": "115",
+              "name": "Aşpaz, çörəkçi, şirniyyatçı",
+              "parentId": "109"
+            },
+            {
+              "id": "117",
+              "name": "Hostes",
+              "parentId": "109"
+            }
+          ],
+          "note": "Restoran meneceri, aşpaz, ofisiant ve hostes ayrılmalı."
+        },
+        {
+          "sourceId": 192,
+          "sourceName": "Təmizlik və Xidmət personalı (housekeeping)",
+          "sourceSlug": "housekeeping",
+          "status": "close",
+          "targetCandidates": [
+            {
+              "id": "118",
+              "name": "Təmizlik üzrə xidmətçi, xadimə (Otel)",
+              "parentId": "109"
+            }
+          ],
+          "note": "Otel temizliği."
+        },
+        {
+          "sourceId": 128,
+          "sourceName": "Turizm xidmətləri",
+          "sourceSlug": "tourism-services",
+          "status": "role-dependent",
+          "targetCandidates": [
+            {
+              "id": "111",
+              "name": "Turizm və mehmanxana işi",
+              "parentId": "109"
+            },
+            {
+              "id": "112",
+              "name": "Turizm meneceri",
+              "parentId": "109"
+            }
+          ],
+          "note": "Turizm operasyonları ve meneceri."
+        },
+        {
+          "sourceId": 149,
+          "sourceName": "Gözəllik, Fitness və Şəxsi qulluq",
+          "sourceSlug": "beauty-fitness-personal-care",
+          "status": "role-dependent",
+          "targetCandidates": [
+            {
+              "id": "120",
+              "name": "SPA və gözəllik",
+              "parentId": "119"
+            },
+            {
+              "id": "121",
+              "name": "Saç ustası, bərbər",
+              "parentId": "119"
+            },
+            {
+              "id": "122",
+              "name": "Fitnes məşqçisi, idman zalı təlimatçısı",
+              "parentId": "119"
+            },
+            {
+              "id": "123",
+              "name": "Dırnaq ustası",
+              "parentId": "119"
+            },
+            {
+              "id": "124",
+              "name": "Masajçı",
+              "parentId": "119"
+            },
+            {
+              "id": "125",
+              "name": "Kosmetoloq",
+              "parentId": "119"
+            }
+          ],
+          "note": "Sende ayrı ana kategori 119; mesleğe göre alt kategori."
+        }
+      ]
+    },
+    {
+      "sourceId": 20,
+      "sourceName": "Təhsil və Təlim",
+      "sourceSlug": "education-training",
+      "targetCandidates": [
+        {
+          "id": "79",
+          "name": "Təhsil və elm",
+          "parentId": null
+        },
+        {
+          "id": "47",
+          "name": "İnzibati heyət",
+          "parentId": null
+        }
+      ],
+      "subcategories": [
+        {
+          "sourceId": 118,
+          "sourceName": "Tədris",
+          "sourceSlug": "teaching",
+          "status": "role-dependent",
+          "targetCandidates": [
+            {
+              "id": "80",
+              "name": "Məktəb tədrisi",
+              "parentId": "79"
+            },
+            {
+              "id": "81",
+              "name": "Universitet tədrisi",
+              "parentId": "79"
+            },
+            {
+              "id": "82",
+              "name": "Repetitor",
+              "parentId": "79"
+            }
+          ],
+          "note": "Okul, üniversite ve özel ders ayrılmalı."
+        },
+        {
+          "sourceId": 195,
+          "sourceName": "Korporativ təlim",
+          "sourceSlug": "corporate-training",
+          "status": "close",
+          "targetCandidates": [
+            {
+              "id": "83",
+              "name": "Xüsusi təhsil / Təlim",
+              "parentId": "79"
+            }
+          ],
+          "note": "Kurumsal eğitim mevcut birleşik alt kategoride."
+        },
+        {
+          "sourceId": 113,
+          "sourceName": "Xarici dil tədrisi",
+          "sourceSlug": "language-instruction",
+          "status": "partial",
+          "targetCandidates": [
+            {
+              "id": "80",
+              "name": "Məktəb tədrisi",
+              "parentId": "79"
+            },
+            {
+              "id": "81",
+              "name": "Universitet tədrisi",
+              "parentId": "79"
+            },
+            {
+              "id": "82",
+              "name": "Repetitor",
+              "parentId": "79"
+            }
+          ],
+          "note": "Dil öğretimi ayrı alt kategori değil; eğitim düzeyine göre seçilmeli."
+        },
+        {
+          "sourceId": 46,
+          "sourceName": "Tərcümə və Dilçilik",
+          "sourceSlug": "translation-interpretation",
+          "status": "close",
+          "targetCandidates": [
+            {
+              "id": "54",
+              "name": "Tərcüməçi",
+              "parentId": "47"
+            }
+          ],
+          "note": "Sende İnzibati heyət altında Tərcüməçi."
+        }
+      ]
+    },
+    {
+      "sourceId": 16,
+      "sourceName": "Marketinq, Media və Kommunikasiyalar",
+      "sourceSlug": "marketing-media-communications",
+      "targetCandidates": [
+        {
+          "id": "16",
+          "name": "Marketinq, Reklam və PR",
+          "parentId": null
+        },
+        {
+          "id": "106",
+          "name": "Müxtəlif",
+          "parentId": null
+        }
+      ],
+      "subcategories": [
+        {
+          "sourceId": 106,
+          "sourceName": "Rəqəmsal marketinq",
+          "sourceSlug": "digital-marketing",
+          "status": "role-dependent",
+          "targetCandidates": [
+            {
+              "id": "17",
+              "name": "Marketinq meneceri / Rəqəmsal marketoloq",
+              "parentId": "16"
+            },
+            {
+              "id": "24",
+              "name": "SMM menecer / Kontent menecer",
+              "parentId": "16"
+            }
+          ],
+          "note": "Dijital marketinq ve SMM ayrılmalı."
+        },
+        {
+          "sourceId": 98,
+          "sourceName": "Brend və Marketinq Strategiyası",
+          "sourceSlug": "brand-marketing-strategy",
+          "status": "role-dependent",
+          "targetCandidates": [
+            {
+              "id": "17",
+              "name": "Marketinq meneceri / Rəqəmsal marketoloq",
+              "parentId": "16"
+            },
+            {
+              "id": "19",
+              "name": "Marketinq və PR direktoru (CMO)",
+              "parentId": "16"
+            },
+            {
+              "id": "22",
+              "name": "Marketinq analitiki",
+              "parentId": "16"
+            }
+          ],
+          "note": "Marka stratejisi için rol ve kıdem belirleyici."
+        },
+        {
+          "sourceId": 104,
+          "sourceName": "Məzmunun (kontent) hazırlanması",
+          "sourceSlug": "content-creation",
+          "status": "role-dependent",
+          "targetCandidates": [
+            {
+              "id": "20",
+              "name": "Kopirayter, mətn yazarı, redaktor",
+              "parentId": "16"
+            },
+            {
+              "id": "21",
+              "name": "Kontent menecer",
+              "parentId": "16"
+            },
+            {
+              "id": "24",
+              "name": "SMM menecer / Kontent menecer",
+              "parentId": "16"
+            }
+          ],
+          "note": "Yazar, kontent meneceri ve SMM ayrılmalı."
+        },
+        {
+          "sourceId": 100,
+          "sourceName": "İctimaiyyətlə Əlaqələr",
+          "sourceSlug": "public-relations",
+          "status": "close",
+          "targetCandidates": [
+            {
+              "id": "18",
+              "name": "PR menecer",
+              "parentId": "16"
+            }
+          ],
+          "note": "PR menecer."
+        }
+      ]
+    },
+    {
+      "sourceId": 13,
+      "sourceName": "Hüquq",
+      "sourceSlug": "legal-compliance",
+      "targetCandidates": [
+        {
+          "id": "74",
+          "name": "Hüquqşünaslıq",
+          "parentId": null
+        },
+        {
+          "id": "26",
+          "name": "Maliyyə və Mühasibatlıq",
+          "parentId": null
+        }
+      ],
+      "subcategories": []
+    },
+    {
+      "sourceId": 9,
+      "sourceName": "Əmlak və Təsərrüfat idarəçiliyi",
+      "sourceSlug": "property-facility-management",
+      "targetCandidates": [
+        {
+          "id": "47",
+          "name": "İnzibati heyət",
+          "parentId": null
+        },
+        {
+          "id": "91",
+          "name": "Xidmət Personalı",
+          "parentId": null
+        },
+        {
+          "id": "132",
+          "name": "Sənaye, tikinti və istehsalat",
+          "parentId": null
+        },
+        {
+          "id": "85",
+          "name": "Kənd təsərrüfatı",
+          "parentId": null
+        }
+      ],
+      "subcategories": [
+        {
+          "sourceId": 198,
+          "sourceName": "Obyekt və Təsərrüfat idarəetməsi",
+          "sourceSlug": "facility-management",
+          "status": "partial",
+          "targetCandidates": [
+            {
+              "id": "49",
+              "name": "Menecment",
+              "parentId": "47"
+            },
+            {
+              "id": "53",
+              "name": "Administrator",
+              "parentId": "47"
+            }
+          ],
+          "note": "Facility management için özel alt kategori yok."
+        },
+        {
+          "sourceId": 112,
+          "sourceName": "Bina və Texniki baxım",
+          "sourceSlug": "building-maintenance",
+          "status": "role-dependent",
+          "targetCandidates": [
+            {
+              "id": "138",
+              "name": "Mexanik",
+              "parentId": "132"
+            },
+            {
+              "id": "141",
+              "name": "Çilingər, santexnik",
+              "parentId": "132"
+            },
+            {
+              "id": "142",
+              "name": "Elektrik",
+              "parentId": "132"
+            },
+            {
+              "id": "143",
+              "name": "Usta",
+              "parentId": "132"
+            }
+          ],
+          "note": "Bakım işinin uzmanlık alanına göre seçilmeli."
+        },
+        {
+          "sourceId": 38,
+          "sourceName": "Təmizlik xidmətləri",
+          "sourceSlug": "cleaning-services",
+          "status": "close",
+          "targetCandidates": [
+            {
+              "id": "92",
+              "name": "Xadimə",
+              "parentId": "91"
+            }
+          ],
+          "note": "Xadimə."
+        },
+        {
+          "sourceId": 76,
+          "sourceName": "Ev xidmətləri",
+          "sourceSlug": "domestic-services",
+          "status": "role-dependent",
+          "targetCandidates": [
+            {
+              "id": "92",
+              "name": "Xadimə",
+              "parentId": "91"
+            },
+            {
+              "id": "93",
+              "name": "Dayə",
+              "parentId": "91"
+            },
+            {
+              "id": "89",
+              "name": "Bağban",
+              "parentId": "85"
+            }
+          ],
+          "note": "Temizlik, dayə ve bağban farklı ana kategorilerde."
+        }
+      ]
+    },
+    {
+      "sourceId": 15,
+      "sourceName": "Sənaye və kənd təsərrüfatı",
+      "sourceSlug": "manufacturing-agriculture",
+      "targetCandidates": [
+        {
+          "id": "132",
+          "name": "Sənaye, tikinti və istehsalat",
+          "parentId": null
+        },
+        {
+          "id": "85",
+          "name": "Kənd təsərrüfatı",
+          "parentId": null
+        },
+        {
+          "id": "91",
+          "name": "Xidmət Personalı",
+          "parentId": null
+        }
+      ],
+      "subcategories": [
+        {
+          "sourceId": 117,
+          "sourceName": "İstehsalatın idarə edilməsi",
+          "sourceSlug": "production-supervision",
+          "status": "partial",
+          "targetCandidates": [
+            {
+              "id": "49",
+              "name": "Menecment",
+              "parentId": "47"
+            },
+            {
+              "id": "143",
+              "name": "Usta",
+              "parentId": "132"
+            }
+          ],
+          "note": "İstehsalat rəhbəri için özel alt kategori yok."
+        },
+        {
+          "sourceId": 201,
+          "sourceName": "Avadanlıq və dəzgah operatorları",
+          "sourceSlug": "machine-operations",
+          "status": "gap",
+          "targetCandidates": [],
+          "note": "Makine/CNC operatörü için özel alt kategori yok."
+        },
+        {
+          "sourceId": 152,
+          "sourceName": "İstehsalat fəhlələri",
+          "sourceSlug": "factory-labor",
+          "status": "close",
+          "targetCandidates": [
+            {
+              "id": "94",
+              "name": "Fəhlə",
+              "parentId": "91"
+            }
+          ],
+          "note": "Sende Xidmət Personalı altında Fəhlə."
+        },
+        {
+          "sourceId": 204,
+          "sourceName": "Keyfiyyətə nəzarət",
+          "sourceSlug": "quality-control",
+          "status": "gap",
+          "targetCandidates": [],
+          "note": "Kalite kontrol için özel alt kategori yok."
+        }
+      ]
+    },
+    {
+      "sourceId": 5,
+      "sourceName": "Dizayn, Yaradıcılıq və Media",
+      "sourceSlug": "design-creative-media",
+      "targetCandidates": [
+        {
+          "id": "68",
+          "name": "Dizayn",
+          "parentId": null
+        },
+        {
+          "id": "16",
+          "name": "Marketinq, Reklam və PR",
+          "parentId": null
+        },
+        {
+          "id": "106",
+          "name": "Müxtəlif",
+          "parentId": null
+        }
+      ],
+      "subcategories": [
+        {
+          "sourceId": 56,
+          "sourceName": "Dizayn",
+          "sourceSlug": "design",
+          "status": "role-dependent",
+          "targetCandidates": [
+            {
+              "id": "25",
+              "name": "Qrafik dizayner",
+              "parentId": "16"
+            },
+            {
+              "id": "69",
+              "name": "Veb-dizayn (UI/UX)",
+              "parentId": "68"
+            },
+            {
+              "id": "71",
+              "name": "Geyim dizaynı",
+              "parentId": "68"
+            },
+            {
+              "id": "72",
+              "name": "Rəssam / İllüstrator",
+              "parentId": "68"
+            },
+            {
+              "id": "73",
+              "name": "Digər",
+              "parentId": "68"
+            }
+          ],
+          "note": "Grafik tasarım 16 altında; diğer tasarımlar 68 altında."
+        },
+        {
+          "sourceId": 127,
+          "sourceName": "Memarlıq və İnteryer dizayn",
+          "sourceSlug": "architecture-interior-design",
+          "status": "close",
+          "targetCandidates": [
+            {
+              "id": "70",
+              "name": "Memar / İnteryer dizaynı",
+              "parentId": "68"
+            }
+          ],
+          "note": "Memar / İnteryer dizaynı."
+        },
+        {
+          "sourceId": 47,
+          "sourceName": "Jurnalistika",
+          "sourceSlug": "journalism",
+          "status": "close",
+          "targetCandidates": [
+            {
+              "id": "107",
+              "name": "Jurnalistika və Media",
+              "parentId": "106"
+            }
+          ],
+          "note": "Sende Müxtəlif altında Jurnalistika və Media."
+        },
+        {
+          "sourceId": 54,
+          "sourceName": "Media istehsalı (prodakşn)",
+          "sourceSlug": "media-production",
+          "status": "partial",
+          "targetCandidates": [
+            {
+              "id": "107",
+              "name": "Jurnalistika və Media",
+              "parentId": "106"
+            },
+            {
+              "id": "21",
+              "name": "Kontent menecer",
+              "parentId": "16"
+            }
+          ],
+          "note": "Medya üretimi/videograf ayrı değil."
+        },
+        {
+          "sourceId": 51,
+          "sourceName": "Fotoqrafiya",
+          "sourceSlug": "photography",
+          "status": "gap",
+          "targetCandidates": [],
+          "note": "Fotoqraf için özel alt kategori yok."
+        }
+      ]
+    },
+    {
+      "sourceId": 17,
+      "sourceName": "Səhiyyə və Əczaçılıq",
+      "sourceSlug": "healthcare-pharmacy",
+      "targetCandidates": [
+        {
+          "id": "100",
+          "name": "Tibb və əczaçılıq",
+          "parentId": null
+        }
+      ],
+      "subcategories": [
+        {
+          "sourceId": 165,
+          "sourceName": "Həkimlər",
+          "sourceSlug": "medical-doctors",
+          "status": "close",
+          "targetCandidates": [
+            {
+              "id": "101",
+              "name": "Həkim",
+              "parentId": "100"
+            }
+          ],
+          "note": "Həkim."
+        },
+        {
+          "sourceId": 137,
+          "sourceName": "Kiçik və orta tibb personalı",
+          "sourceSlug": "nursing-medical-staff",
+          "status": "close",
+          "targetCandidates": [
+            {
+              "id": "102",
+              "name": "Tibbi personal (Tibb bacısı / Qardaşı)",
+              "parentId": "100"
+            }
+          ],
+          "note": "Tibbi personal."
+        },
+        {
+          "sourceId": 133,
+          "sourceName": "Digər tibb mütəxəssisləri",
+          "sourceSlug": "allied-health-professionals",
+          "status": "partial",
+          "targetCandidates": [
+            {
+              "id": "104",
+              "name": "Laborant",
+              "parentId": "100"
+            }
+          ],
+          "note": "Laborant mevcut; diğer sağlık mesleklerinin tamamını kapsamaz."
+        },
+        {
+          "sourceId": 108,
+          "sourceName": "Əczaçılıq",
+          "sourceSlug": "pharmacy",
+          "status": "close",
+          "targetCandidates": [
+            {
+              "id": "103",
+              "name": "Tibbi nümayəndə / Əczaçı",
+              "parentId": "100"
+            }
+          ],
+          "note": "Tibbi nümayəndə / Əczaçı birleşik kategorisi."
+        }
+      ]
+    },
+    {
+      "sourceId": 21,
+      "sourceName": "Təhlükəsizlik və Mühafizə xidmətləri",
+      "sourceSlug": "security-protective-services",
+      "targetCandidates": [
+        {
+          "id": "91",
+          "name": "Xidmət Personalı",
+          "parentId": null
+        }
+      ],
+      "subcategories": [
+        {
+          "sourceId": 207,
+          "sourceName": "Ümumi mühafizə",
+          "sourceSlug": "general-security",
+          "status": "close",
+          "targetCandidates": [
+            {
+              "id": "95",
+              "name": "Mühafizə xidməti",
+              "parentId": "91"
+            }
+          ],
+          "note": "Mühafizə xidməti."
+        }
+      ]
+    }
+  ]
+}

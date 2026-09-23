@@ -1,0 +1,52 @@
+{
+  "name": "job-scraper",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Express ve TypeScript ile scraping API başlangıç projesi",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/server.js",
+    "typecheck": "tsc --noEmit",
+    "test:integration": "npm run build && node --test tests/core.test.mjs tests/references.test.mjs",
+    "scrape:busy": "npm run build && node dist/sites/busy.az/cli.js",
+    "scrape:1is": "npm run build && node dist/sites/1is.az/cli.js",
+    "test": "npm run build && node --test tests/shared.test.mjs tests/busy.test.mjs tests/1is.test.mjs tests/adapters.test.mjs",
+    "scrape:work": "npm run build && node dist/sites/work.az/cli.js",
+    "scrape:jobsearch": "npm run build && node dist/sites/jobsearch.az/cli.js",
+    "scrape:boss": "npm run build && node dist/sites/boss.az/cli.js",
+    "scrape:hellojob": "npm run build && node dist/sites/hellojob.az/cli.js",
+    "scrape:smartjob": "npm run build && node dist/sites/smartjob.az/cli.js",
+    "scrape:careera": "npm run build && node dist/sites/careera.az/cli.js",
+    "scrape:all": "npm run build && node dist/scheduler/run-all.js",
+    "scrape:baku": "npm run scrape:all -- --region baku --write",
+    "scrape:other": "npm run scrape:all -- --region other --write",
+    "references:sync": "npm run build && node dist/tools/sync-references.js",
+    "references:sync:write": "npm run build && node dist/tools/sync-references.js --write",
+    "scrape:position": "npm run build && node dist/sites/position.az/cli.js",
+    "scrape:jobu": "npm run build && node dist/sites/jobu.az/cli.js",
+    "scrape:jobnet": "npm run build && node dist/sites/jobnet.az/cli.js",
+    "scrape:azvak": "npm run build && node dist/sites/azvak.az/cli.js",
+    "scrape:easyjob": "npm run build && node dist/sites/easyjob.az/cli.js",
+    "logos:sync": "npm run build && node dist/tools/sync-logos.js",
+    "logos:sync:write": "npm run build && node dist/tools/sync-logos.js --write"
+  },
+  "dependencies": {
+    "cheerio": "^1.2.0",
+    "dotenv": "^18.0.2",
+    "express": "^5.2.1",
+    "pg": "^8.23.0",
+    "undici": "^8.11.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/node": "^22.20.4",
+    "@types/pg": "^8.23.1",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2"
+  }
+}

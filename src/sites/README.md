@@ -1,0 +1,20 @@
+# Ortak scraper sözleşmesi
+
+Aktif kaynaklar: busy.az, 1is.az, work.az, jobsearch.az, boss.az, hellojob.az, smartjob.az, careera.az, position.az, jobu.az, jobnet.az, azvak.az, easyjob.az. Hepsi liste taraması yapar; kaynağa özel notlar için ilgili `README.md` dosyasına bakın.
+
+Yeni site adaptörlerinde önce liste/filtre ağ istekleri incelenir. Kullanılabilir liste JSON API'si varsa tercih edilir; aksi durumda HTML listesi okunur. Keşif kısıtları kaynak notlarında belirtilir. İlan detayları hiçbir yöntemle okunmaz.
+
+Bütün adaptörler `shared/http.ts` içindeki kayıtlı liste endpointlerini kullanır. İsteklerde zaman aşımı, sınırlı tekrar, istek aralığı ve yönlendirme reddi ortaktır. Kaynak ID'leri adaptörde etiketlere çevrilir; yerel referans ID'si olarak kullanılmaz. Ortak `shared/run.ts` çalıştırıcısı `--write`, `--file`, `--region` ve `--limit` (kategori başına toplanan ilan sayısı) argümanlarını kabul eder.
+
+- `shared/lookups.ts`: city, job type, workplace type ve experience level. Öncelik açık liste alanı (API/kart), filtre doğrulaması, başlıktaki açık ifade. Kaynak API/kart seçimi adaptörün sorumluluğudur. Belirsiz veya çelişen alan boş bırakılır. Ofisten çalışma varsayılmaz; deneyim yılı kıdem değildir (boss.az için kullanıcı onaylı istisna: yıl bandı `experience-levels.json` ile kıdeme eşlenir).
+- Boyut başına referans eşleme dosyaları (her site klasöründe): `categories.json`, `cities.json`, `job-types.json`, `workplace-types.json`, `experience-levels.json`. Her biri düz bir eşlemedir: anahtar = kaynaktaki değer, değer = bizim yerel slug (karşılığı yoksa `null`). `shared/references.ts` beşini yükler; geçerli eşlemeler sezgisel kuralların **önüne geçer**, eksik/geçersiz anahtarlarda sezgisel kurala düşülür. Yeni referans yaratılmaz; slug yerelde yoksa eşleme yok sayılır. Dosyalar hem `scrape` (eşleme) hem `--write` (insert) aşamasında kullanılır. Eşlemelerin geçerliliği `npm run test:integration` ile DB'ye karşı doğrulanır. Eşlemeleri DB ile senkronize etmek için `npm run references:sync` (kuru) / `npm run references:sync:write` (uygula) kullanılır; `--site <alan>` ile tek kaynak hedeflenir. Kategori eşlemeleri yanlış eşleşmeyi önlemek için otomatik doldurulmaz, yalnızca geçersizlik raporlanır.
+- `shared/categories.ts`: mevcut kategori/alt kategoriye başlık eşleştirmesi. Eşleşmeyen kategori boş bırakılır, yeni referans yaratılmaz.
+- `shared/vacancy.ts`: bütün mapper sonuçları `finalizeVacancy` kontrolünden geçer. Yayın tarihi 2026-09-15 öncesi veya gelecekteyse, deadline geçmişse reddedilir. Eksik tarihler ve referanslar raporlanır. Maaş yalnızca açık liste alanından normalize edilerek verilir; geçersiz/çelişen tutar boş bırakılır. Para birimi yoksa mevcut şemanın AZN varsayılanı korunur; bu kaynaktan doğrulanan bir bilgi sayılmaz.
+- `shared/pagination.ts`: tamamen bilinen/tekrarlanan veya boş sayfada dur. Filtreyle ilgisiz sabit premium kartlarını sayfa kontrolüne katma. Güvenilir tarih sırası yoksa eski kart yüzünden sayfalama durdurulmaz.
+- `shared/logos.ts`: şirket logolarını yerel indirir (uzak URL ile istek yapılmaz). `company_logo` alanına yerel yol yazılır; `data/company-logos/registry.json` şirket adı → dosya eşlemesi tutar ve kaynaklar arası ortak kullanım sağlar. Başka bir proje aynı dizini (`COMPANY_LOGO_DIR`) paylaşabilir. Mevcut kayıtlar için `npm run logos:sync[:write]`.
+- `shared/importer.ts`: tek SQL yazıcısı; yalnızca scraped_vacancies, kaynak+ilan ID ile tekilleştirme, eksik referans/logo tamamlama. Şirket oluşturulmaz ve şema değiştirilmez.
+- Şirketin gerçek logosunu al; genel ikonları kullanma. Kaynaklar arasında ortak şirket logosu kullanımı kullanıcı tarafından sonraki çalışmaya ayrılmıştır.
+
+Adaptör kaynak URL'sini, liste seçicilerini, filtre ID eşleştirmelerini ve kategori haritasını kendi klasöründe tutar. Ham detay alanlarını kayıt nesnesine taşımaz. `finalizeVacancy` sonucundaki uyarılar ve toplamadaki `skipped` kayıtları kaynak/önizleme raporlarında korunur. Kuralların testleri: `npm test`.
+
+Kalıcı kullanıcı tercihleri için kökteki PROJECT_NOTES.md dosyasını okuyun.

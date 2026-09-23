@@ -1,0 +1,1284 @@
+{
+  "fetchedAt": "2026-09-22T12:55:04.045Z",
+  "source": "https://busy.az/api/bff/api/filter/categories",
+  "data": [
+    {
+      "id": 19,
+      "title": {
+        "az": "Satış, Pərakəndə və Müştəri xidmətləri",
+        "en": "Sales, Retail & Customer Support",
+        "ru": "Продажи, Розничная торговля и Обслуживание клиентов"
+      },
+      "slug": {
+        "az": "sales-retail-customer-support",
+        "en": "sales-retail-customer-support",
+        "ru": "sales-retail-customer-support"
+      },
+      "icon": "busy-editorsales5f1a8da7acacc.svg",
+      "background": "4754-busy-editor-sales608d9dcd5cbeb.webp",
+      "subs": [
+        {
+          "id": 168,
+          "title": {
+            "az": "Satışın idarəedilməsi",
+            "en": "Sales Management",
+            "ru": "Управление продажами"
+          },
+          "slug": {
+            "az": "sales-management",
+            "en": "sales-management",
+            "ru": "sales-management"
+          },
+          "category_id": 19,
+          "icon": null,
+          "background": null
+        },
+        {
+          "id": 110,
+          "title": {
+            "az": "Pərakəndə satış",
+            "en": "Retail Sales",
+            "ru": "Розничные продажи"
+          },
+          "slug": {
+            "az": "retail-sales",
+            "en": "retail-sales",
+            "ru": "retail-sales"
+          },
+          "category_id": 19,
+          "icon": null,
+          "background": "8987-editor-at-busyaz-retail-sales65d6fd506fad3.png"
+        },
+        {
+          "id": 37,
+          "title": {
+            "az": "Müştəri xidmətləri",
+            "en": "Customer Support",
+            "ru": "Обслуживание клиентов"
+          },
+          "slug": {
+            "az": "customer-support",
+            "en": "customer-support",
+            "ru": "customer-support"
+          },
+          "category_id": 19,
+          "icon": null,
+          "background": "2868-busy-editor-call-center-representative608da0995f7f8.webp"
+        },
+        {
+          "id": 171,
+          "title": {
+            "az": "Biznesin İnkişafı",
+            "en": "Business Development",
+            "ru": "Развитие бизнеса"
+          },
+          "slug": {
+            "az": "business-development",
+            "en": "business-development",
+            "ru": "business-development"
+          },
+          "category_id": 19,
+          "icon": null,
+          "background": null
+        },
+        {
+          "id": 73,
+          "title": {
+            "az": "Daşınmaz əmlak satışı",
+            "en": "Real Estate Sales",
+            "ru": "Продажа недвижимости"
+          },
+          "slug": {
+            "az": "real-estate-sales",
+            "en": "real-estate-sales",
+            "ru": "real-estate-sales"
+          },
+          "category_id": 19,
+          "icon": null,
+          "background": "7270-busy-editor-rieltor-agent608dab0997312.webp"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "title": {
+        "az": "Maliyyə, Bankçılıq və Sığorta",
+        "en": "Finance, Banking & Insurance",
+        "ru": "Финансы, Банковское дело и Страхование"
+      },
+      "slug": {
+        "az": "finance-banking-insurance",
+        "en": "finance-banking-insurance",
+        "ru": "finance-banking-insurance"
+      },
+      "icon": "busy-editorbanks-investments-finance5f1dbffb3fe84.svg",
+      "background": "1630-busy-editor-banks-investments-finance608d9c308cf51.webp",
+      "subs": [
+        {
+          "id": 31,
+          "title": {
+            "az": "Maliyyə idarəetməsi və təhlili",
+            "en": "Financial Management & Analysis",
+            "ru": "Финансовое управление и анализ"
+          },
+          "slug": {
+            "az": "financial-management-analysis",
+            "en": "financial-management-analysis",
+            "ru": "financial-management-analysis"
+          },
+          "category_id": 7,
+          "icon": null,
+          "background": "2155-busy-editor-financial-control608d9f78c9fef.webp"
+        },
+        {
+          "id": 26,
+          "title": {
+            "az": "Mühasibat uçotu",
+            "en": "Accounting",
+            "ru": "Бухгалтерский учёт"
+          },
+          "slug": {
+            "az": "accounting",
+            "en": "accounting",
+            "ru": "accounting"
+          },
+          "category_id": 7,
+          "icon": null,
+          "background": "1571-busy-editor-accountant608d9e6d9a846.webp"
+        },
+        {
+          "id": 61,
+          "title": {
+            "az": "Audit və Vergi",
+            "en": "Audit & Tax",
+            "ru": "Аудит и налогообложение"
+          },
+          "slug": {
+            "az": "audit-tax",
+            "en": "audit-tax",
+            "ru": "audit-tax"
+          },
+          "category_id": 7,
+          "icon": null,
+          "background": null
+        },
+        {
+          "id": 64,
+          "title": {
+            "az": "Bank əməliyyatları",
+            "en": "Banking Operations",
+            "ru": "Банковские операции"
+          },
+          "slug": {
+            "az": "banking-operations",
+            "en": "banking-operations",
+            "ru": "banking-operations"
+          },
+          "category_id": 7,
+          "icon": null,
+          "background": "519-busy-editor-credit608da935d6b7a.webp"
+        },
+        {
+          "id": 114,
+          "title": {
+            "az": "Sığorta",
+            "en": "Insurance",
+            "ru": "Страхование"
+          },
+          "slug": {
+            "az": "insurance",
+            "en": "insurance",
+            "ru": "insurance"
+          },
+          "category_id": 7,
+          "icon": null,
+          "background": "3427-busy-editor-insurance-reinsurance608db42a025e2.webp"
+        }
+      ]
+    },
+    {
+      "id": 116,
+      "title": {
+        "az": "Mühəndislik və Texniki sahələr",
+        "en": "Engineering & Technical",
+        "ru": "Инженерия и Технические специальности"
+      },
+      "slug": {
+        "az": "engineering-technical",
+        "en": "engineering-technical",
+        "ru": "engineering-technical"
+      },
+      "icon": "busy-editorconstruction-real-estate-architecture5f1a926ef0620.svg",
+      "background": null,
+      "subs": [
+        {
+          "id": 72,
+          "title": {
+            "az": "Mülki və Tikinti mühəndisliyi",
+            "en": "Civil & Construction Engineering",
+            "ru": "Гражданское и строительное проектирование"
+          },
+          "slug": {
+            "az": "civil-construction-engineering",
+            "en": "civil-construction-engineering",
+            "ru": "civil-construction-engineering"
+          },
+          "category_id": 116,
+          "icon": null,
+          "background": "6570-busy-editor-engineer608daae1752b0.webp"
+        },
+        {
+          "id": 174,
+          "title": {
+            "az": "Maşınqayırma (mexanika) mühəndisliyi",
+            "en": "Mechanical Engineering",
+            "ru": "Машиностроение (механическая инженерия)"
+          },
+          "slug": {
+            "az": "mechanical-engineering",
+            "en": "mechanical-engineering",
+            "ru": "mechanical-engineering"
+          },
+          "category_id": 116,
+          "icon": null,
+          "background": null
+        },
+        {
+          "id": 122,
+          "title": {
+            "az": "Elektrik, Elektronika və Avtomatlaşdırma",
+            "en": "Electrical, Electronics & Automation",
+            "ru": "Электротехника, электроника и автоматизация"
+          },
+          "slug": {
+            "az": "electrical-electronics-automation",
+            "en": "electrical-electronics-automation",
+            "ru": "electrical-electronics-automation"
+          },
+          "category_id": 116,
+          "icon": null,
+          "background": "8885-busy-editor-mechanical-electrical-and-plumbing608db66d82caf.webp"
+        },
+        {
+          "id": 177,
+          "title": {
+            "az": "Sənaye, Kimya və Proses mühəndisliyi",
+            "en": "Industrial, Chemical & Process Engineering",
+            "ru": "Промышленная, химическая и процессная инженерия"
+          },
+          "slug": {
+            "az": "industrial-chemical-process-engineering",
+            "en": "industrial-chemical-process-engineering",
+            "ru": "industrial-chemical-process-engineering"
+          },
+          "category_id": 116,
+          "icon": null,
+          "background": null
+        },
+        {
+          "id": 119,
+          "title": {
+            "az": "Neft-qaz və Geologiya",
+            "en": "Oil, Gas & Geology",
+            "ru": "Нефть, газ и геология"
+          },
+          "slug": {
+            "az": "oil-gas-geology",
+            "en": "oil-gas-geology",
+            "ru": "oil-gas-geology"
+          },
+          "category_id": 116,
+          "icon": null,
+          "background": "772-busy-editor-oil-and-gas608db60fb6b88.webp"
+        },
+        {
+          "id": 147,
+          "title": {
+            "az": "Ətraf mühit və Əməyin mühafizəsi",
+            "en": "Environmental & HSE",
+            "ru": "Экология и охрана труда"
+          },
+          "slug": {
+            "az": "environmental-hse",
+            "en": "environmental-hse",
+            "ru": "environmental-hse"
+          },
+          "category_id": 116,
+          "icon": null,
+          "background": "5082-busy-editor-hse608db91fb2ff6.webp"
+        },
+        {
+          "id": 142,
+          "title": {
+            "az": "İxtisaslı fəhlə və Texniki peşələr",
+            "en": "Skilled Trades & Technicians",
+            "ru": "Квалифицированные рабочие и технические специалисты"
+          },
+          "slug": {
+            "az": "skilled-trades-technicians",
+            "en": "skilled-trades-technicians",
+            "ru": "skilled-trades-technicians"
+          },
+          "category_id": 116,
+          "icon": null,
+          "background": "9572-busy-editor-electrician5f50ddab2faae.jpg"
+        },
+        {
+          "id": 180,
+          "title": {
+            "az": "Mühəndislik dəstəyi",
+            "en": "Engineering Support",
+            "ru": "Инженерная поддержка"
+          },
+          "slug": {
+            "az": "engineering-support",
+            "en": "engineering-support",
+            "ru": "engineering-support"
+          },
+          "category_id": 116,
+          "icon": null,
+          "background": null
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "title": {
+        "az": "Satınalma və Təchizat zənciri",
+        "en": "Procurement & Supply Chain",
+        "ru": "Закупки и Цепочка поставок"
+      },
+      "slug": {
+        "az": "procurement-supply-chain",
+        "en": "procurement-supply-chain",
+        "ru": "procurement-supply-chain"
+      },
+      "icon": "busy-editorprocurement5f1a915fb8e57.svg",
+      "background": "8495-busy-editor-procurement608d9d7d5d239.webp",
+      "subs": [
+        {
+          "id": 150,
+          "title": {
+            "az": "Satınalma və Tədarük",
+            "en": "Procurement & Purchasing",
+            "ru": "Закупки и снабжение"
+          },
+          "slug": {
+            "az": "procurement-purchasing",
+            "en": "procurement-purchasing",
+            "ru": "procurement-purchasing"
+          },
+          "category_id": 18,
+          "icon": null,
+          "background": null
+        },
+        {
+          "id": 183,
+          "title": {
+            "az": "Təchizat zəncirinin planlaşdırılması",
+            "en": "Supply Chain Planning",
+            "ru": "Планирование цепочки поставок"
+          },
+          "slug": {
+            "az": "supply-chain-planning",
+            "en": "supply-chain-planning",
+            "ru": "supply-chain-planning"
+          },
+          "category_id": 18,
+          "icon": null,
+          "background": null
+        },
+        {
+          "id": 132,
+          "title": {
+            "az": "Logistika və Nəqliyyat",
+            "en": "Logistics & Transportation",
+            "ru": "Логистика и транспорт"
+          },
+          "slug": {
+            "az": "logistics-transportation",
+            "en": "logistics-transportation",
+            "ru": "logistics-transportation"
+          },
+          "category_id": 18,
+          "icon": null,
+          "background": "1938-busy-editor-expediter608db76b1be9a.webp"
+        },
+        {
+          "id": 94,
+          "title": {
+            "az": "Anbar əməliyyatları",
+            "en": "Warehouse Operations",
+            "ru": "Складские операции"
+          },
+          "slug": {
+            "az": "warehouse-operations",
+            "en": "warehouse-operations",
+            "ru": "warehouse-operations"
+          },
+          "category_id": 18,
+          "icon": null,
+          "background": "811-busy-editor-warehousing608dae9cb3b7a.webp"
+        },
+        {
+          "id": 40,
+          "title": {
+            "az": "Sürücülük",
+            "en": "Driving",
+            "ru": "Водители"
+          },
+          "slug": {
+            "az": "driving",
+            "en": "driving",
+            "ru": "driving"
+          },
+          "category_id": 18,
+          "icon": null,
+          "background": "6109-busy-editor-driver608da18fc8423.webp"
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "title": {
+        "az": "Biznes, İdarəetmə və İnsan Resursları",
+        "en": "Business, Administration & HR",
+        "ru": "Бизнес, Администрирование и Управление персоналом"
+      },
+      "slug": {
+        "az": "business-administration-hr",
+        "en": "business-administration-hr",
+        "ru": "business-administration-hr"
+      },
+      "icon": "busy-editormanagement5f2e6f286e868.svg",
+      "background": "2929-busy-editor-management5f512067d9d37.jpg",
+      "subs": [
+        {
+          "id": 186,
+          "title": {
+            "az": "İnzibati İdarəetmə",
+            "en": "Executive Management",
+            "ru": "Административное управление"
+          },
+          "slug": {
+            "az": "executive-management",
+            "en": "executive-management",
+            "ru": "executive-management"
+          },
+          "category_id": 25,
+          "icon": null,
+          "background": null
+        },
+        {
+          "id": 189,
+          "title": {
+            "az": "Əməliyyatların idarə edilməsi",
+            "en": "Operations Management",
+            "ru": "Операционное управление"
+          },
+          "slug": {
+            "az": "operations-management",
+            "en": "operations-management",
+            "ru": "operations-management"
+          },
+          "category_id": 25,
+          "icon": null,
+          "background": null
+        },
+        {
+          "id": 109,
+          "title": {
+            "az": "Layihə və Proqram idarəetməsi",
+            "en": "Project & Program Management",
+            "ru": "Управление проектами и программами"
+          },
+          "slug": {
+            "az": "project-program-management",
+            "en": "project-program-management",
+            "ru": "project-program-management"
+          },
+          "category_id": 25,
+          "icon": "busy-editorproject-management5f2e6f41e2844.svg",
+          "background": "9620-busy-editor-project-management608db197dc020.webp"
+        },
+        {
+          "id": 11,
+          "title": {
+            "az": "İnsan resursları və İşəqəbul",
+            "en": "Talent Acquisition / HR",
+            "ru": "Подбор персонала и HR"
+          },
+          "slug": {
+            "az": "talent-acquisition-hr",
+            "en": "talent-acquisition-hr",
+            "ru": "talent-acquisition-hr"
+          },
+          "category_id": 25,
+          "icon": "busy-editorhuman-resources-training5f1a908ad954d.svg",
+          "background": "5923-busy-editor-human-resources-training608d9ce293568.webp"
+        },
+        {
+          "id": 41,
+          "title": {
+            "az": "Ofis inzibatçılığı",
+            "en": "Office Administration",
+            "ru": "Офисное администрирование"
+          },
+          "slug": {
+            "az": "office-administration",
+            "en": "office-administration",
+            "ru": "office-administration"
+          },
+          "category_id": 25,
+          "icon": null,
+          "background": "514-busy-editor-office-manager608da227a91ae.webp"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "title": {
+        "az": "İT, Proqram təminatı və Məlumat analitikası",
+        "en": "IT, Software & Data",
+        "ru": "ИТ, Разработка ПО и Аналитика данных"
+      },
+      "slug": {
+        "az": "it-software-data",
+        "en": "it-software-data",
+        "ru": "it-software-data"
+      },
+      "icon": "busy-editorit-internet-telecom5f1dc287d590a.svg",
+      "background": null,
+      "subs": [
+        {
+          "id": 90,
+          "title": {
+            "az": "Proqram təminatı",
+            "en": "Software Development",
+            "ru": "Программное обеспечение"
+          },
+          "slug": {
+            "az": "software-development",
+            "en": "software-development",
+            "ru": "software-development"
+          },
+          "category_id": 12,
+          "icon": null,
+          "background": "1184-busy-editor-software-development608dade5186cd.webp"
+        },
+        {
+          "id": 92,
+          "title": {
+            "az": "Sistem inzibatçılığı",
+            "en": "Systems Administration",
+            "ru": "Системное администрирование"
+          },
+          "slug": {
+            "az": "systems-administration",
+            "en": "systems-administration",
+            "ru": "systems-administration"
+          },
+          "category_id": 12,
+          "icon": null,
+          "background": "4345-busy-editor-system-administrator608dae494eb13.webp"
+        },
+        {
+          "id": 91,
+          "title": {
+            "az": "IT Helpdesk",
+            "en": "IT Helpdesk",
+            "ru": "IT-поддержка (Helpdesk)"
+          },
+          "slug": {
+            "az": "it-helpdesk",
+            "en": "it-helpdesk",
+            "ru": "it-helpdesk"
+          },
+          "category_id": 12,
+          "icon": null,
+          "background": "3438-busy-editor-support-helpdesk5f50923bbd414.jpg"
+        },
+        {
+          "id": 105,
+          "title": {
+            "az": "Məlumat analitikası",
+            "en": "Data & Analytics",
+            "ru": "Аналитика данных"
+          },
+          "slug": {
+            "az": "data-analytics",
+            "en": "data-analytics",
+            "ru": "data-analytics"
+          },
+          "category_id": 12,
+          "icon": null,
+          "background": "5786-busy-editor-market-research608db02fbff75.webp"
+        },
+        {
+          "id": 85,
+          "title": {
+            "az": "Kibertəhlükəsizlik",
+            "en": "Cybersecurity",
+            "ru": "Кибербезопасность"
+          },
+          "slug": {
+            "az": "cybersecurity",
+            "en": "cybersecurity",
+            "ru": "cybersecurity"
+          },
+          "category_id": 12,
+          "icon": null,
+          "background": null
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "title": {
+        "az": "Otel, İaşə və Turizm",
+        "en": "Hospitality, Catering & Tourism",
+        "ru": "Гостиничный бизнес, Общественное питание и Туризм"
+      },
+      "slug": {
+        "az": "hospitality-catering-tourism",
+        "en": "hospitality-catering-tourism",
+        "ru": "hospitality-catering-tourism"
+      },
+      "icon": "busy-editortourism-hotels-restaurants5f1a91e5562a9.svg",
+      "background": null,
+      "subs": [
+        {
+          "id": 129,
+          "title": {
+            "az": "Otel idarəetməsi",
+            "en": "Hotel Management",
+            "ru": "Управление гостиницами"
+          },
+          "slug": {
+            "az": "hotel-management",
+            "en": "hotel-management",
+            "ru": "hotel-management"
+          },
+          "category_id": 23,
+          "icon": null,
+          "background": "3558-busy-editor-hotel-management5f511bac62fb0.jpg"
+        },
+        {
+          "id": 95,
+          "title": {
+            "az": "İaşə və Qida Xidmətləri",
+            "en": "Food Service",
+            "ru": "Общественное питание и ресторанный сервис"
+          },
+          "slug": {
+            "az": "food-service",
+            "en": "food-service",
+            "ru": "food-service"
+          },
+          "category_id": 23,
+          "icon": null,
+          "background": "901-busy-editor-waiter-barman608daec5bc8fc.webp"
+        },
+        {
+          "id": 192,
+          "title": {
+            "az": "Təmizlik və Xidmət personalı (housekeeping)",
+            "en": "Housekeeping",
+            "ru": "Хозяйственная служба (Housekeeping)"
+          },
+          "slug": {
+            "az": "housekeeping",
+            "en": "housekeeping",
+            "ru": "housekeeping"
+          },
+          "category_id": 23,
+          "icon": null,
+          "background": null
+        },
+        {
+          "id": 128,
+          "title": {
+            "az": "Turizm xidmətləri",
+            "en": "Tourism Services",
+            "ru": "Туристические услуги"
+          },
+          "slug": {
+            "az": "tourism-services",
+            "en": "tourism-services",
+            "ru": "tourism-services"
+          },
+          "category_id": 23,
+          "icon": null,
+          "background": null
+        },
+        {
+          "id": 149,
+          "title": {
+            "az": "Gözəllik, Fitness və Şəxsi qulluq",
+            "en": "Beauty, Fitness & Personal Care",
+            "ru": "Красота, фитнес и уход"
+          },
+          "slug": {
+            "az": "beauty-fitness-personal-care",
+            "en": "beauty-fitness-personal-care",
+            "ru": "beauty-fitness-personal-care"
+          },
+          "category_id": 23,
+          "icon": null,
+          "background": "9714-busy-editor-beauty-salons608db95551448.webp"
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "title": {
+        "az": "Təhsil və Təlim",
+        "en": "Education & Training",
+        "ru": "Образование и Обучение"
+      },
+      "slug": {
+        "az": "education-training",
+        "en": "education-training",
+        "ru": "education-training"
+      },
+      "icon": "busy-editorscience-education5f1a90f426dc3.svg",
+      "background": null,
+      "subs": [
+        {
+          "id": 118,
+          "title": {
+            "az": "Tədris",
+            "en": "Teaching",
+            "ru": "Преподавание"
+          },
+          "slug": {
+            "az": "teaching",
+            "en": "teaching",
+            "ru": "teaching"
+          },
+          "category_id": 20,
+          "icon": null,
+          "background": "4774-busy-editor-teaching608db5d520d2c.webp"
+        },
+        {
+          "id": 195,
+          "title": {
+            "az": "Korporativ təlim",
+            "en": "Corporate Training",
+            "ru": "Корпоративное обучение"
+          },
+          "slug": {
+            "az": "corporate-training",
+            "en": "corporate-training",
+            "ru": "corporate-training"
+          },
+          "category_id": 20,
+          "icon": null,
+          "background": null
+        },
+        {
+          "id": 113,
+          "title": {
+            "az": "Xarici dil tədrisi",
+            "en": "Language Instruction",
+            "ru": "Преподавание иностранных языков"
+          },
+          "slug": {
+            "az": "language-instruction",
+            "en": "language-instruction",
+            "ru": "language-instruction"
+          },
+          "category_id": 20,
+          "icon": null,
+          "background": "5132-busy-editor-teaching-foreign-languages608db3d8b36d4.webp"
+        },
+        {
+          "id": 46,
+          "title": {
+            "az": "Tərcümə və Dilçilik",
+            "en": "Translation & Interpretation",
+            "ru": "Перевод и лингвистика"
+          },
+          "slug": {
+            "az": "translation-interpretation",
+            "en": "translation-interpretation",
+            "ru": "translation-interpretation"
+          },
+          "category_id": 20,
+          "icon": null,
+          "background": "6283-busy-editor-translator-writtern608da3c4b3ede.jpg"
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "title": {
+        "az": "Marketinq, Media və Kommunikasiyalar",
+        "en": "Marketing, Media & Communications",
+        "ru": "Маркетинг, Медиа и Коммуникации"
+      },
+      "slug": {
+        "az": "marketing-media-communications",
+        "en": "marketing-media-communications",
+        "ru": "marketing-media-communications"
+      },
+      "icon": "busy-editormarketing-advertising-pr5f1a8d7cc5d7f.svg",
+      "background": null,
+      "subs": [
+        {
+          "id": 106,
+          "title": {
+            "az": "Rəqəmsal marketinq",
+            "en": "Digital Marketing",
+            "ru": "Цифровой маркетинг"
+          },
+          "slug": {
+            "az": "digital-marketing",
+            "en": "digital-marketing",
+            "ru": "digital-marketing"
+          },
+          "category_id": 16,
+          "icon": null,
+          "background": "8655-busy-editor-digital-marketing608db05b814bc.webp"
+        },
+        {
+          "id": 98,
+          "title": {
+            "az": "Brend və Marketinq Strategiyası",
+            "en": "Brand & Marketing Strategy",
+            "ru": "Бренд и маркетинговая стратегия"
+          },
+          "slug": {
+            "az": "brand-marketing-strategy",
+            "en": "brand-marketing-strategy",
+            "ru": "brand-marketing-strategy"
+          },
+          "category_id": 16,
+          "icon": null,
+          "background": null
+        },
+        {
+          "id": 104,
+          "title": {
+            "az": "Məzmunun (kontent) hazırlanması",
+            "en": "Content Creation",
+            "ru": "Создание контента"
+          },
+          "slug": {
+            "az": "content-creation",
+            "en": "content-creation",
+            "ru": "content-creation"
+          },
+          "category_id": 16,
+          "icon": null,
+          "background": "2121-busy-editor-copywriting608dafee50cd0.webp"
+        },
+        {
+          "id": 100,
+          "title": {
+            "az": "İctimaiyyətlə Əlaqələr",
+            "en": "Public Relations (PR)",
+            "ru": "Связи с общественностью"
+          },
+          "slug": {
+            "az": "public-relations",
+            "en": "public-relations",
+            "ru": "public-relations"
+          },
+          "category_id": 16,
+          "icon": null,
+          "background": "1904-busy-editor-pr5f5fadfe4d1db.jpg"
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "title": {
+        "az": "Hüquq",
+        "en": "Legal & Compliance",
+        "ru": "Право и нормативное соответствие"
+      },
+      "slug": {
+        "az": "legal-compliance",
+        "en": "legal-compliance",
+        "ru": "legal-compliance"
+      },
+      "icon": "busy-editorlaw5f1a91158105a.svg",
+      "background": "2253-busy-editor-law608d9d2fc200b.webp",
+      "subs": []
+    },
+    {
+      "id": 9,
+      "title": {
+        "az": "Əmlak və Təsərrüfat idarəçiliyi",
+        "en": "Property & Facility Management",
+        "ru": "Управление недвижимостью и эксплуатацией объектов"
+      },
+      "slug": {
+        "az": "property-facility-management",
+        "en": "property-facility-management",
+        "ru": "property-facility-management"
+      },
+      "icon": "busy-editordomestic-staff5f5fa49abc5a0.svg",
+      "background": null,
+      "subs": [
+        {
+          "id": 198,
+          "title": {
+            "az": "Obyekt və Təsərrüfat idarəetməsi",
+            "en": "Facility Management",
+            "ru": "Управление объектами и хозяйством"
+          },
+          "slug": {
+            "az": "facility-management",
+            "en": "facility-management",
+            "ru": "facility-management"
+          },
+          "category_id": 9,
+          "icon": null,
+          "background": null
+        },
+        {
+          "id": 112,
+          "title": {
+            "az": "Bina və Texniki baxım",
+            "en": "Building Maintenance",
+            "ru": "Техническое обслуживание зданий"
+          },
+          "slug": {
+            "az": "building-maintenance",
+            "en": "building-maintenance",
+            "ru": "building-maintenance"
+          },
+          "category_id": 9,
+          "icon": null,
+          "background": "7557-busy-editor-administration-and-maintenance608db3a65cee5.webp"
+        },
+        {
+          "id": 38,
+          "title": {
+            "az": "Təmizlik xidmətləri",
+            "en": "Cleaning Services",
+            "ru": "Клининговые услуги"
+          },
+          "slug": {
+            "az": "cleaning-services",
+            "en": "cleaning-services",
+            "ru": "cleaning-services"
+          },
+          "category_id": 9,
+          "icon": null,
+          "background": "4997-busy-editor-cleaner608da0f9c2a50.webp"
+        },
+        {
+          "id": 76,
+          "title": {
+            "az": "Ev xidmətləri",
+            "en": "Domestic Services",
+            "ru": "Домашний персонал"
+          },
+          "slug": {
+            "az": "domestic-services",
+            "en": "domestic-services",
+            "ru": "domestic-services"
+          },
+          "category_id": 9,
+          "icon": null,
+          "background": "7371-busy-editor-gardener608dab5f14cea.webp"
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "title": {
+        "az": "Sənaye və kənd təsərrüfatı",
+        "en": "Manufacturing & Agriculture",
+        "ru": "Промышленность и сельское хозяйство"
+      },
+      "slug": {
+        "az": "manufacturing-agriculture",
+        "en": "manufacturing-agriculture",
+        "ru": "manufacturing-agriculture"
+      },
+      "icon": "busy-editormanufacturing-agriculture5f1a913e90f9a.svg",
+      "background": null,
+      "subs": [
+        {
+          "id": 117,
+          "title": {
+            "az": "İstehsalatın idarə edilməsi",
+            "en": "Production Supervision",
+            "ru": "Управление производством"
+          },
+          "slug": {
+            "az": "production-supervision",
+            "en": "production-supervision",
+            "ru": "production-supervision"
+          },
+          "category_id": 15,
+          "icon": null,
+          "background": "2106-busy-editor-manufacturing-and-industry608db59c9993f.webp"
+        },
+        {
+          "id": 201,
+          "title": {
+            "az": "Avadanlıq və dəzgah operatorları",
+            "en": "Machine Operations",
+            "ru": "Операторы оборудования и станков"
+          },
+          "slug": {
+            "az": "machine-operations",
+            "en": "machine-operations",
+            "ru": "machine-operations"
+          },
+          "category_id": 15,
+          "icon": null,
+          "background": null
+        },
+        {
+          "id": 152,
+          "title": {
+            "az": "İstehsalat fəhlələri",
+            "en": "Factory Labor",
+            "ru": "Производственные рабочие"
+          },
+          "slug": {
+            "az": "factory-labor",
+            "en": "factory-labor",
+            "ru": "factory-labor"
+          },
+          "category_id": 15,
+          "icon": null,
+          "background": "9006-busy-editor-workers608db980a41c0.webp"
+        },
+        {
+          "id": 204,
+          "title": {
+            "az": "Keyfiyyətə nəzarət",
+            "en": "Quality Control",
+            "ru": "Контроль качества"
+          },
+          "slug": {
+            "az": "quality-control",
+            "en": "quality-control",
+            "ru": "quality-control"
+          },
+          "category_id": 15,
+          "icon": null,
+          "background": null
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": {
+        "az": "Dizayn, Yaradıcılıq və Media",
+        "en": "Design, Creative & Media",
+        "ru": "Дизайн, Креатив и Медиа"
+      },
+      "slug": {
+        "az": "design-creative-media",
+        "en": "design-creative-media",
+        "ru": "design-creative-media"
+      },
+      "icon": "busy-editorart-entertainment-media5f1a8bf47a5ac.svg",
+      "background": null,
+      "subs": [
+        {
+          "id": 56,
+          "title": {
+            "az": "Dizayn",
+            "en": "Design",
+            "ru": "Дизайн"
+          },
+          "slug": {
+            "az": "design",
+            "en": "design",
+            "ru": "design"
+          },
+          "category_id": 5,
+          "icon": null,
+          "background": "1268-busy-editor-design-graphic-design-painting608da6f71164a.webp"
+        },
+        {
+          "id": 127,
+          "title": {
+            "az": "Memarlıq və İnteryer dizayn",
+            "en": "Architecture & Interior Design",
+            "ru": "Архитектура и дизайн интерьера"
+          },
+          "slug": {
+            "az": "architecture-interior-design",
+            "en": "architecture-interior-design",
+            "ru": "architecture-interior-design"
+          },
+          "category_id": 5,
+          "icon": null,
+          "background": null
+        },
+        {
+          "id": 47,
+          "title": {
+            "az": "Jurnalistika",
+            "en": "Journalism",
+            "ru": "Журналистика"
+          },
+          "slug": {
+            "az": "journalism",
+            "en": "journalism",
+            "ru": "journalism"
+          },
+          "category_id": 5,
+          "icon": null,
+          "background": "1158-busy-editor-journalism608da3ffb4781.webp"
+        },
+        {
+          "id": 54,
+          "title": {
+            "az": "Media istehsalı (prodakşn)",
+            "en": "Media Production",
+            "ru": "Медиа-производство"
+          },
+          "slug": {
+            "az": "media-production",
+            "en": "media-production",
+            "ru": "media-production"
+          },
+          "category_id": 5,
+          "icon": null,
+          "background": "2533-busy-editor-television-audio-video608da63e314b4.webp"
+        },
+        {
+          "id": 51,
+          "title": {
+            "az": "Fotoqrafiya",
+            "en": "Photography",
+            "ru": "Фотография"
+          },
+          "slug": {
+            "az": "photography",
+            "en": "photography",
+            "ru": "photography"
+          },
+          "category_id": 5,
+          "icon": null,
+          "background": "8787-busy-editor-photography5f4fd927cdf72.jpg"
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "title": {
+        "az": "Səhiyyə və Əczaçılıq",
+        "en": "Healthcare & Pharmacy",
+        "ru": "Здравоохранение и Фармацевтика"
+      },
+      "slug": {
+        "az": "healthcare-pharmacy",
+        "en": "healthcare-pharmacy",
+        "ru": "healthcare-pharmacy"
+      },
+      "icon": "busy-editormedicine-pharmaceuticals5f1a9193bab53.svg",
+      "background": null,
+      "subs": [
+        {
+          "id": 165,
+          "title": {
+            "az": "Həkimlər",
+            "en": "Medical Doctors",
+            "ru": "Врачи"
+          },
+          "slug": {
+            "az": "medical-doctors",
+            "en": "medical-doctors",
+            "ru": "medical-doctors"
+          },
+          "category_id": 17,
+          "icon": null,
+          "background": "1578-busy-editor-doctor608dba0c23a03.webp"
+        },
+        {
+          "id": 137,
+          "title": {
+            "az": "Kiçik və orta tibb personalı",
+            "en": "Nursing & Medical Staff",
+            "ru": "Средний и младший медперсонал"
+          },
+          "slug": {
+            "az": "nursing-medical-staff",
+            "en": "nursing-medical-staff",
+            "ru": "nursing-medical-staff"
+          },
+          "category_id": 17,
+          "icon": null,
+          "background": "5908-busy-editor-junior-medical-and-nursing-personnel608db8530d47a.webp"
+        },
+        {
+          "id": 133,
+          "title": {
+            "az": "Digər tibb mütəxəssisləri",
+            "en": "Allied Health Professionals",
+            "ru": "Другие медицинские специалисты"
+          },
+          "slug": {
+            "az": "allied-health-professionals",
+            "en": "allied-health-professionals",
+            "ru": "allied-health-professionals"
+          },
+          "category_id": 17,
+          "icon": null,
+          "background": "6184-busy-editor-lab-technician608db79323530.webp"
+        },
+        {
+          "id": 108,
+          "title": {
+            "az": "Əczaçılıq",
+            "en": "Pharmacy",
+            "ru": "Фармацевтика"
+          },
+          "slug": {
+            "az": "pharmacy",
+            "en": "pharmacy",
+            "ru": "pharmacy"
+          },
+          "category_id": 17,
+          "icon": null,
+          "background": "6810-busy-editor-pharmaceuticals608db0b3ac2e5.webp"
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "title": {
+        "az": "Təhlükəsizlik və Mühafizə xidmətləri",
+        "en": "Security & Protective Services",
+        "ru": "Безопасность и Охранные службы"
+      },
+      "slug": {
+        "az": "security-protective-services",
+        "en": "security-protective-services",
+        "ru": "security-protective-services"
+      },
+      "icon": "busy-editorsecurity5f1a91c92ccdd.svg",
+      "background": null,
+      "subs": [
+        {
+          "id": 207,
+          "title": {
+            "az": "Ümumi mühafizə",
+            "en": "General Security",
+            "ru": "Частная охрана"
+          },
+          "slug": {
+            "az": "general-security",
+            "en": "general-security",
+            "ru": "general-security"
+          },
+          "category_id": 21,
+          "icon": null,
+          "background": null
+        }
+      ]
+    }
+  ]
+}

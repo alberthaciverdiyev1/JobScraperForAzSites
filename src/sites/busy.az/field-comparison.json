@@ -1,0 +1,743 @@
+{
+  "checkedAt": "2026-09-22T13:37:13.031Z",
+  "sources": {
+    "cities": "https://busy.az/api/bff/api/filter/cities?page=1&per_page=200",
+    "jobTypes": "https://busy.az/api/bff/api/filter/employment-types?page=1&per_page=25",
+    "experiences": "https://busy.az/api/bff/api/filter/experiences?page=1&per_page=25",
+    "list": "https://busy.az/vacancies"
+  },
+  "cityMapping": [
+    {
+      "busyId": 1,
+      "busyName": "Bakı",
+      "localId": "1",
+      "localName": "Bakı",
+      "note": "Ad eşleşmesi"
+    },
+    {
+      "busyId": 3,
+      "busyName": "Abşeron rayonu/Xırdalan",
+      "localId": null,
+      "localName": null,
+      "note": "Birleşik bölge: yalnızca Xırdalan açıkça belirtilirse yerel 6; otomatik tek şehre indirme."
+    },
+    {
+      "busyId": 4,
+      "busyName": "Ağcabədi",
+      "localId": "30",
+      "localName": "Ağcabədi",
+      "note": "Ad eşleşmesi"
+    },
+    {
+      "busyId": 5,
+      "busyName": "Ağdam",
+      "localId": "20",
+      "localName": "Ağdam",
+      "note": "Ad eşleşmesi"
+    },
+    {
+      "busyId": 6,
+      "busyName": "Ağdaş",
+      "localId": "31",
+      "localName": "Ağdaş",
+      "note": "Ad eşleşmesi"
+    },
+    {
+      "busyId": 7,
+      "busyName": "Ağstafa",
+      "localId": "33",
+      "localName": "Ağstafa",
+      "note": "Ad eşleşmesi"
+    },
+    {
+      "busyId": 8,
+      "busyName": "Ağsu",
+      "localId": "34",
+      "localName": "Ağsu",
+      "note": "Ad eşleşmesi"
+    },
+    {
+      "busyId": 9,
+      "busyName": "Astara",
+      "localId": "35",
+      "localName": "Astara",
+      "note": "Ad eşleşmesi"
+    },
+    {
+      "busyId": 77,
+      "busyName": "Azərbaycan",
+      "localId": null,
+      "localName": null,
+      "note": "Ülke geneli; city_id boş."
+    },
+    {
+      "busyId": 10,
+      "busyName": "Babək",
+      "localId": null,
+      "localName": null,
+      "note": "Mevcut şehir listesinde birebir karşılık yok; city_id boş."
+    },
+    {
+      "busyId": 11,
+      "busyName": "Balakən",
+      "localId": "36",
+      "localName": "Balakən",
+      "note": "Ad eşleşmesi"
+    },
+    {
+      "busyId": 13,
+      "busyName": "Beyləqan",
+      "localId": "37",
+      "localName": "Beyləqan",
+      "note": "Ad eşleşmesi"
+    },
+    {
+      "busyId": 12,
+      "busyName": "Bərdə",
+      "localId": "11",
+      "localName": "Bərdə",
+      "note": "Ad eşleşmesi"
+    },
+    {
+      "busyId": 14,
+      "busyName": "Biləsuvar",
+      "localId": "38",
+      "localName": "Biləsuvar",
+      "note": "Ad eşleşmesi"
+    },
+    {
+      "busyId": 15,
+      "busyName": "Cəbrayıl",
+      "localId": "27",
+      "localName": "Cəbrayıl",
+      "note": "Ad eşleşmesi"
+    },
+    {
+      "busyId": 16,
+      "busyName": "Cəlilabad",
+      "localId": "39",
+      "localName": "Cəlilabad",
+      "note": "Ad eşleşmesi"
+    },
+    {
+      "busyId": 17,
+      "busyName": "Culfa",
+      "localId": "40",
+      "localName": "Culfa",
+      "note": "Ad eşleşmesi"
+    },
+    {
+      "busyId": 18,
+      "busyName": "Daşkəsən",
+      "localId": "41",
+      "localName": "Daşkəsən",
+      "note": "Ad eşleşmesi"
+    },
+    {
+      "busyId": 19,
+      "busyName": "Füzuli",
+      "localId": "23",
+      "localName": "Füzuli",
+      "note": "Ad eşleşmesi"
+    },
+    {
+      "busyId": 20,
+      "busyName": "Gədəbəy",
+      "localId": "43",
+      "localName": "Gədəbəy",
+      "note": "Ad eşleşmesi"
+    },
+    {
+      "busyId": 21,
+      "busyName": "Gəncə",
+      "localId": "2",
+      "localName": "Gəncə",
+      "note": "Ad eşleşmesi"
+    },
+    {
+      "busyId": 22,
+      "busyName": "Goranboy",
+      "localId": "44",
+      "localName": "Goranboy",
+      "note": "Ad eşleşmesi"
+    },
+    {
+      "busyId": 23,
+      "busyName": "Göyçay",
+      "localId": "45",
+      "localName": "Göyçay",
+      "note": "Ad eşleşmesi"
+    },
+    {
+      "busyId": 24,
+      "busyName": "Göygöl",
+      "localId": "46",
+      "localName": "Göygöl",
+      "note": "Ad eşleşmesi"
+    },
+    {
+      "busyId": 25,
+      "busyName": "Hacıqabul",
+      "localId": "48",
+      "localName": "Hacıqabul",
+      "note": "Ad eşleşmesi"
+    },
+    {
+      "busyId": 66,
+      "busyName": "Xaçmaz",
+      "localId": "16",
+      "localName": "Xaçmaz",
+      "note": "Ad eşleşmesi"
+    },
+    {
+      "busyId": 67,
+      "busyName": "Xankəndi",
+      "localId": "22",
+      "localName": "Xankəndi",
+      "note": "Ad eşleşmesi"
+    },
+    {
+      "busyId": 68,
+      "busyName": "Xızı",
+      "localId": "71",
+      "localName": "Xızı",
+      "note": "Ad eşleşmesi"
+    },
+    {
+      "busyId": 69,
+      "busyName": "Xocalı",
+      "localId": "72",
+      "localName": "Xocalı",
+      "note": "Ad eşleşmesi"
+    },
+    {
+      "busyId": 70,
+      "busyName": "Xocavənd",
+      "localId": "73",
+      "localName": "Xocavənd",
+      "note": "Ad eşleşmesi"
+    },
+    {
+      "busyId": 26,
+      "busyName": "İmişli",
+      "localId": "49",
+      "localName": "İmişli",
+      "note": "Ad eşleşmesi"
+    },
+    {
+      "busyId": 27,
+      "busyName": "İsmayıllı",
+      "localId": "19",
+      "localName": "İsmayıllı",
+      "note": "Ad eşleşmesi"
+    },
+    {
+      "busyId": 28,
+      "busyName": "Kəlbəcər",
+      "localId": "26",
+      "localName": "Kəlbəcər",
+      "note": "Ad eşleşmesi"
+    },
+    {
+      "busyId": 29,
+      "busyName": "Kəngərli",
+      "localId": null,
+      "localName": null,
+      "note": "Mevcut şehir listesinde birebir karşılık yok; city_id boş."
+    },
+    {
+      "busyId": 30,
+      "busyName": "Kürdəmir",
+      "localId": "50",
+      "localName": "Kürdəmir",
+      "note": "Ad eşleşmesi"
+    },
+    {
+      "busyId": 41,
+      "busyName": "Qax",
+      "localId": "57",
+      "localName": "Qax",
+      "note": "Ad eşleşmesi"
+    },
+    {
+      "busyId": 42,
+      "busyName": "Qazax",
+      "localId": "58",
+      "localName": "Qazax",
+      "note": "Ad eşleşmesi"
+    },
+    {
+      "busyId": 43,
+      "busyName": "Qəbələ",
+      "localId": "10",
+      "localName": "Qəbələ",
+      "note": "Ad eşleşmesi"
+    },
+    {
+      "busyId": 44,
+      "busyName": "Qobustan",
+      "localId": "59",
+      "localName": "Qobustan",
+      "note": "Ad eşleşmesi"
+    },
+    {
+      "busyId": 45,
+      "busyName": "Quba",
+      "localId": "13",
+      "localName": "Quba",
+      "note": "Ad eşleşmesi"
+    },
+    {
+      "busyId": 46,
+      "busyName": "Qubadlı",
+      "localId": "28",
+      "localName": "Qubadlı",
+      "note": "Ad eşleşmesi"
+    },
+    {
+      "busyId": 47,
+      "busyName": "Qusar",
+      "localId": "14",
+      "localName": "Qusar",
+      "note": "Ad eşleşmesi"
+    },
+    {
+      "busyId": 31,
+      "busyName": "Laçın",
+      "localId": "25",
+      "localName": "Laçın",
+      "note": "Ad eşleşmesi"
+    },
+    {
+      "busyId": 34,
+      "busyName": "Lerik",
+      "localId": "51",
+      "localName": "Lerik",
+      "note": "Ad eşleşmesi"
+    },
+    {
+      "busyId": 32,
+      "busyName": "Lənkəran",
+      "localId": "7",
+      "localName": "Lənkəran",
+      "note": "Ad eşleşmesi"
+    },
+    {
+      "busyId": 35,
+      "busyName": "Masallı",
+      "localId": "15",
+      "localName": "Masallı",
+      "note": "Ad eşleşmesi"
+    },
+    {
+      "busyId": 36,
+      "busyName": "Mingəçevir",
+      "localId": "5",
+      "localName": "Mingəçevir",
+      "note": "Ad eşleşmesi"
+    },
+    {
+      "busyId": 37,
+      "busyName": "Naftalan",
+      "localId": "52",
+      "localName": "Naftalan",
+      "note": "Ad eşleşmesi"
+    },
+    {
+      "busyId": 78,
+      "busyName": "Naxçıvan",
+      "localId": "4",
+      "localName": "Naxçıvan",
+      "note": "Ad eşleşmesi"
+    },
+    {
+      "busyId": 38,
+      "busyName": "Neftçala",
+      "localId": "53",
+      "localName": "Neftçala",
+      "note": "Ad eşleşmesi"
+    },
+    {
+      "busyId": 39,
+      "busyName": "Oğuz",
+      "localId": "54",
+      "localName": "Oğuz",
+      "note": "Ad eşleşmesi"
+    },
+    {
+      "busyId": 40,
+      "busyName": "Ordubad",
+      "localId": "55",
+      "localName": "Ordubad",
+      "note": "Ad eşleşmesi"
+    },
+    {
+      "busyId": 48,
+      "busyName": "Saatlı",
+      "localId": "60",
+      "localName": "Saatlı",
+      "note": "Ad eşleşmesi"
+    },
+    {
+      "busyId": 49,
+      "busyName": "Sabirabad",
+      "localId": "61",
+      "localName": "Sabirabad",
+      "note": "Ad eşleşmesi"
+    },
+    {
+      "busyId": 52,
+      "busyName": "Salyan",
+      "localId": "18",
+      "localName": "Salyan",
+      "note": "Ad eşleşmesi"
+    },
+    {
+      "busyId": 54,
+      "busyName": "Samux",
+      "localId": "64",
+      "localName": "Samux",
+      "note": "Ad eşleşmesi"
+    },
+    {
+      "busyId": 55,
+      "busyName": "Sədərək",
+      "localId": null,
+      "localName": null,
+      "note": "Mevcut şehir listesinde birebir karşılık yok; city_id boş."
+    },
+    {
+      "busyId": 61,
+      "busyName": "Siyəzən",
+      "localId": "67",
+      "localName": "Siyəzən",
+      "note": "Ad eşleşmesi"
+    },
+    {
+      "busyId": 2,
+      "busyName": "Sumqayıt",
+      "localId": "3",
+      "localName": "Sumqayıt",
+      "note": "Ad eşleşmesi"
+    },
+    {
+      "busyId": 50,
+      "busyName": "Şabran",
+      "localId": "62",
+      "localName": "Şabran",
+      "note": "Ad eşleşmesi"
+    },
+    {
+      "busyId": 51,
+      "busyName": "Şahbuz",
+      "localId": "63",
+      "localName": "Şahbuz",
+      "note": "Ad eşleşmesi"
+    },
+    {
+      "busyId": 53,
+      "busyName": "Şamaxı",
+      "localId": "17",
+      "localName": "Şamaxı",
+      "note": "Ad eşleşmesi"
+    },
+    {
+      "busyId": 56,
+      "busyName": "Şəki",
+      "localId": "8",
+      "localName": "Şəki",
+      "note": "Ad eşleşmesi"
+    },
+    {
+      "busyId": 58,
+      "busyName": "Şəmkir",
+      "localId": "65",
+      "localName": "Şəmkir",
+      "note": "Ad eşleşmesi"
+    },
+    {
+      "busyId": 59,
+      "busyName": "Şərur",
+      "localId": "66",
+      "localName": "Şərur",
+      "note": "Ad eşleşmesi"
+    },
+    {
+      "busyId": 60,
+      "busyName": "Şirvan",
+      "localId": "12",
+      "localName": "Şirvan",
+      "note": "Ad eşleşmesi"
+    },
+    {
+      "busyId": 62,
+      "busyName": "Şuşa",
+      "localId": "21",
+      "localName": "Şuşa",
+      "note": "Ad eşleşmesi"
+    },
+    {
+      "busyId": 63,
+      "busyName": "Tərtər",
+      "localId": "68",
+      "localName": "Tərtər",
+      "note": "Ad eşleşmesi"
+    },
+    {
+      "busyId": 64,
+      "busyName": "Tovuz",
+      "localId": "69",
+      "localName": "Tovuz",
+      "note": "Ad eşleşmesi"
+    },
+    {
+      "busyId": 65,
+      "busyName": "Ucar",
+      "localId": "70",
+      "localName": "Ucar",
+      "note": "Ad eşleşmesi"
+    },
+    {
+      "busyId": 71,
+      "busyName": "Yardımlı",
+      "localId": "75",
+      "localName": "Yardımlı",
+      "note": "Ad eşleşmesi"
+    },
+    {
+      "busyId": 72,
+      "busyName": "Yevlax",
+      "localId": "9",
+      "localName": "Yevlax",
+      "note": "Ad eşleşmesi"
+    },
+    {
+      "busyId": 74,
+      "busyName": "Zaqatala",
+      "localId": "76",
+      "localName": "Zaqatala",
+      "note": "Ad eşleşmesi"
+    },
+    {
+      "busyId": 75,
+      "busyName": "Zəngilan",
+      "localId": "24",
+      "localName": "Zəngilan",
+      "note": "Ad eşleşmesi"
+    },
+    {
+      "busyId": 76,
+      "busyName": "Zərdab",
+      "localId": "77",
+      "localName": "Zərdab",
+      "note": "Ad eşleşmesi"
+    }
+  ],
+  "jobTypeMapping": [
+    {
+      "busyId": 1,
+      "busyName": "Tam ştat (full time)",
+      "localId": "1",
+      "localName": "Tam Ştat"
+    },
+    {
+      "busyId": 2,
+      "busyName": "Yarımştat (part time)",
+      "localId": "2",
+      "localName": "Yarım Ştat"
+    }
+  ],
+  "experienceMapping": [
+    {
+      "busyId": 1,
+      "busyName": "Tələb olunmur",
+      "localId": null,
+      "reason": "Kaynak deneyim gereksinimi/yıl, hedef mesleki kıdem düzeyi; birebir eşleşmez."
+    },
+    {
+      "busyId": 3,
+      "busyName": "1 il",
+      "localId": null,
+      "reason": "Kaynak deneyim gereksinimi/yıl, hedef mesleki kıdem düzeyi; birebir eşleşmez."
+    },
+    {
+      "busyId": 4,
+      "busyName": "2 il",
+      "localId": null,
+      "reason": "Kaynak deneyim gereksinimi/yıl, hedef mesleki kıdem düzeyi; birebir eşleşmez."
+    },
+    {
+      "busyId": 5,
+      "busyName": "3 il",
+      "localId": null,
+      "reason": "Kaynak deneyim gereksinimi/yıl, hedef mesleki kıdem düzeyi; birebir eşleşmez."
+    },
+    {
+      "busyId": 6,
+      "busyName": "4 il",
+      "localId": null,
+      "reason": "Kaynak deneyim gereksinimi/yıl, hedef mesleki kıdem düzeyi; birebir eşleşmez."
+    },
+    {
+      "busyId": 7,
+      "busyName": "5 il",
+      "localId": null,
+      "reason": "Kaynak deneyim gereksinimi/yıl, hedef mesleki kıdem düzeyi; birebir eşleşmez."
+    },
+    {
+      "busyId": 8,
+      "busyName": "6 il",
+      "localId": null,
+      "reason": "Kaynak deneyim gereksinimi/yıl, hedef mesleki kıdem düzeyi; birebir eşleşmez."
+    },
+    {
+      "busyId": 9,
+      "busyName": "7 il",
+      "localId": null,
+      "reason": "Kaynak deneyim gereksinimi/yıl, hedef mesleki kıdem düzeyi; birebir eşleşmez."
+    },
+    {
+      "busyId": 10,
+      "busyName": "10 il",
+      "localId": null,
+      "reason": "Kaynak deneyim gereksinimi/yıl, hedef mesleki kıdem düzeyi; birebir eşleşmez."
+    }
+  ],
+  "localWorkplaces": [
+    {
+      "id": "1",
+      "name": {
+        "az": "Məsafədən (Uzaqdan)",
+        "tr": "Uzaktan (Remote)",
+        "en": "Remote",
+        "ru": "Удаленно"
+      },
+      "slug": "uzaktan"
+    },
+    {
+      "id": "2",
+      "name": {
+        "az": "Hibrid",
+        "tr": "Hibrit",
+        "en": "Hybrid",
+        "ru": "Гибридный"
+      },
+      "slug": "hibrit"
+    },
+    {
+      "id": "3",
+      "name": {
+        "az": "Ofis daxili",
+        "tr": "Ofiste (On-site)",
+        "en": "On-site",
+        "ru": "В офисе"
+      },
+      "slug": "ofiste"
+    }
+  ],
+  "localExperienceLevels": [
+    {
+      "id": "5",
+      "name": {
+        "az": "Başlanğıc səviyyə",
+        "tr": "Başlangıç (Junior)",
+        "en": "Entry / Junior",
+        "ru": "Начальный (Junior)"
+      },
+      "slug": "baslangic"
+    },
+    {
+      "id": "6",
+      "name": {
+        "az": "Orta səviyyə",
+        "tr": "Orta Seviye (Mid)",
+        "en": "Mid-Level",
+        "ru": "Средний (Mid)"
+      },
+      "slug": "orta"
+    },
+    {
+      "id": "7",
+      "name": {
+        "az": "Yüksək səviyyə",
+        "tr": "Kıdemli (Senior)",
+        "en": "Senior",
+        "ru": "Старший (Senior)"
+      },
+      "slug": "yuksek"
+    },
+    {
+      "id": "8",
+      "name": {
+        "az": "Rəhbər / Menecer",
+        "tr": "Yönetici / Lead",
+        "en": "Lead / Manager",
+        "ru": "Руководитель (Lead)"
+      },
+      "slug": "rehber"
+    }
+  ],
+  "workplaceFinding": "İncelenen ilan listesi ve filtre bileşeninde workplace seçeneği doğrulanmadı. Yerel remote/hybrid/onsite IDleri kaynak ID olarak kullanılamaz.",
+  "localOnlyCities": [
+    {
+      "id": "6",
+      "name": {
+        "az": "Xırdalan",
+        "en": "Khirdalan",
+        "tr": "Hırdalan",
+        "ru": "Хырдалан"
+      },
+      "slug": "xirdalan"
+    },
+    {
+      "id": "32",
+      "name": {
+        "az": "Ağdərə",
+        "en": "Aghdara",
+        "tr": "Ağdere",
+        "ru": "Агдере"
+      },
+      "slug": "agdere"
+    },
+    {
+      "id": "42",
+      "name": {
+        "az": "Əli-Bayramlı",
+        "en": "Ali-Bayramli",
+        "tr": "Ali Bayramlı",
+        "ru": "Али-Байрамлы"
+      },
+      "slug": "eli-bayramli"
+    },
+    {
+      "id": "47",
+      "name": {
+        "az": "Göytəpə",
+        "en": "Goytapa",
+        "tr": "Göytepe",
+        "ru": "Гейтепе"
+      },
+      "slug": "goytepe"
+    },
+    {
+      "id": "56",
+      "name": {
+        "az": "Qaradağ",
+        "en": "Garadagh",
+        "tr": "Karadağ",
+        "ru": "Гарадаг"
+      },
+      "slug": "qaradag"
+    },
+    {
+      "id": "74",
+      "name": {
+        "az": "Xudat",
+        "en": "Khudat",
+        "tr": "Hudat",
+        "ru": "Худат"
+      },
+      "slug": "xudat"
+    }
+  ]
+}

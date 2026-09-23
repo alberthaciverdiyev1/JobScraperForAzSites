@@ -1,0 +1,7 @@
+# JobScraper zamanlama (crontab -e ile ekle ya da: crontab scripts/crontab.txt)
+# Bakü: günde 3 kez, aralarında 4 saat; rastgele başlangıç 08:00-13:00 (3 koşu 08:00-21:00 arası)
+0 0 * * * /home/albert/Workspace/FoxSoft/KibrisKare/JobScraper/scripts/cron-baku-daily.sh
+# boss.az: günde 1 kez (gün boyu yavaş + retry)
+0 3 * * * /home/albert/Workspace/FoxSoft/KibrisKare/JobScraper/scripts/cron-boss.sh
+# Diğer şehirler: hafta sonu Cumartesi 21:00
+0 21 * * 6 /home/albert/Workspace/FoxSoft/KibrisKare/JobScraper/scripts/cron-other-weekend.sh
