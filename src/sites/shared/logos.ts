@@ -30,7 +30,7 @@ export async function loadRegistry(): Promise<Registry> {
     return cache;
 }
 
-async function saveRegistry(): Promise<void> {
+export async function saveRegistry(): Promise<void> {
     await mkdir(config.companyLogoDir, {recursive: true});
     await writeFile(registryPath(), JSON.stringify(cache, null, 2) + '\n');
 }

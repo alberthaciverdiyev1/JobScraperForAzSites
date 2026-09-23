@@ -20,7 +20,7 @@ export function isBeforeCutoff(value: unknown) {
 }
 
 export function logoUrl(value: unknown, base: string): string | null {
-    if (typeof value !== 'string' || !value.trim() || /placeholder|building\.|default[.-]/i.test(value)) return null;
+    if (typeof value !== 'string' || !value.trim() || /placeholder|building\.|default[.-]|no[-_]?logo|noimage|generic|company[-_]?logo|logo[-_]?default|avatar[-_]?default|blank[-_]?(image|logo)/i.test(value)) return null;
     try {
         const url = new URL(value, base);
         return /^https?:$/.test(url.protocol) && url.href.length <= 255 ? url.href : null;

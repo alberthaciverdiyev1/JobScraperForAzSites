@@ -8,5 +8,8 @@ export NVM_DIR="${NVM_DIR:-$HOME/.nvm}"
 mkdir -p logs
 { echo "=== $(date -Is) diğer şehirler (region=other) ==="; npm run scrape:other; } >> logs/other-cron.log 2>&1 || true
 
+# Varsayılan/placeholder logoları ayıkla ve yolları güncelle
+npm run logos:sync:write >> logs/logos.log 2>&1 || true
+
 # Logoları canlı uygulamanın public/scraped-companies dizinine kopyala (ayarlıysa)
 [ -n "${COMPANY_LOGO_PUBLISH_DIR:-}" ] && ./scripts/publish-logos.sh "$COMPANY_LOGO_PUBLISH_DIR" || true

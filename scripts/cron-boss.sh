@@ -12,5 +12,8 @@ mkdir -p logs
   echo "=== $(date -Is) boss tarama bitti (exit $?) ==="
 } >> logs/boss-cron.log 2>&1
 
+# Varsayılan/placeholder logoları ayıkla ve yolları güncelle
+npm run logos:sync:write >> logs/logos.log 2>&1 || true
+
 # Logoları canlı uygulamanın public/scraped-companies dizinine kopyala (ayarlıysa)
 [ -n "${COMPANY_LOGO_PUBLISH_DIR:-}" ] && ./scripts/publish-logos.sh "$COMPANY_LOGO_PUBLISH_DIR" || true

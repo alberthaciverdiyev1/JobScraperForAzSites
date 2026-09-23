@@ -18,5 +18,8 @@ for i in 1 2 3; do
   [ "$i" -lt 3 ] && sleep $((4 * 3600))
 done
 
+# Varsayılan/placeholder logoları ayıkla ve yolları güncelle
+npm run logos:sync:write >> logs/logos.log 2>&1 || true
+
 # Logoları canlı uygulamanın public/scraped-companies dizinine kopyala (ayarlıysa)
 [ -n "${COMPANY_LOGO_PUBLISH_DIR:-}" ] && ./scripts/publish-logos.sh "$COMPANY_LOGO_PUBLISH_DIR" || true
