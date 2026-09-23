@@ -1,3 +1,4 @@
+CRON_TZ=Asia/Baku
 # JobScraper zamanlama (crontab -e ile ekle ya da: crontab scripts/crontab.txt)
 # Bakü: günde 3 kez sabit saatlerde
 0 9,14,19 * * * /var/www/JobScraper/scripts/cron-baku-daily.sh
