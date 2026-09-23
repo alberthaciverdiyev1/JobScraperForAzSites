@@ -31,7 +31,7 @@ try {
             if (remote) downloaded++; else reused++;
             if (write) {
                 const result = await pool.query(
-                    "UPDATE public.scraped_vacancies SET company_logo=$1 WHERE company_name=$2 AND (company_logo IS NULL OR company_logo LIKE 'http%')",
+                    "UPDATE public.scraped_vacancies SET company_logo=$1 WHERE company_name=$2 AND company_logo IS DISTINCT FROM $1",
                     [resolved, company_name]);
                 updatedRows += result.rowCount ?? 0;
             }
