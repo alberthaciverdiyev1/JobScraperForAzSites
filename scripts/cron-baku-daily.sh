@@ -1,34 +1,18 @@
 #!/usr/bin/env bash
-# Bakü: günde 3 kez, aralarında 4 saat, rastgele başlangıç 08:00-13:00
-# (böylece 3 koşu da 08:00-21:00 aralığında kalır).
+# Bakü taraması — cron ile günde 3 kez tetiklenir (09:00, 14:00, 19:00).
 set -euo pipefail
 cd "$(dirname "$0")/.."
 export NVM_DIR="${NVM_DIR:-$HOME/.nvm}"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" && nvm use 22 >/dev/null 2>&1 || true
-
 mkdir -p logs
 LOG=logs/baku-cron.log
-# 08:00..13:00 arası rastgele başlangıç saati (0..5 offset)
-start_h=$(( 8 + RANDOM % 6 ))
-echo "=== $(date -Is) baku günlük: rastgele başlangıç ${start_h}:00 (koşular: ${start_h}, $((start_h+4)), $((start_h+8))) ===" >> "$LOG"
-sleep $(( start_h * 3600 ))
-for i in 1 2 3; do
-  echo "--- $(date -Is) baku koşu $i/3 ---" >> "$LOG"
-  npm run scrape:baku >> "$LOG" 2>&1 || true
-  [ "$i" -lt 3 ] && sleep $((4 * 3600))
-done
-
-# Scraper durumunu Jobing admini icin DB ye yaz
-npm run status:push >> logs/status.log 2>&1 || true
-
-# Mükerrer ilanları sil (aynı URL veya şirket+başlık+şehir)
-npm run dedupe:write >> logs/dedupe.log 2>&1 || true
-
-# Varsayılan/placeholder logoları ayıkla ve yolları güncelle
-npm run logos:sync:write >> logs/logos.log 2>&1 || true
-
-# Yeni veri sonrası Jobing facet/listing cache ini tazele (ayarlıysa)
-[ -n "${JOBING_ARTISAN:-}" ] && php "$JOBING_ARTISAN" facets:refresh --warm >> logs/facets.log 2>&1 || true
-
-# Logoları canlı uygulamanın public/scraped-companies dizinine kopyala (ayarlıysa)
-[ -n "${COMPANY_LOGO_PUBLISH_DIR:-}" ] && ./scripts/publish-logos.sh "$COMPANY_LOGO_PUBLISH_DIR" || true
+{
+  echo "=== $(date -Is) baku tarama başlıyor ==="
+  npm run scrape:baku
+  npm run status:push
+  npm run dedupe:write
+  npm run logos:sync:write
+  [ -n "${JOBING_ARTISAN:-}" ] && php "$JOBING_ARTISAN" facets:refresh --warm
+  [ -n "${COMPANY_LOGO_PUBLISH_DIR:-}" ] && ./scripts/publish-logos.sh "$COMPANY_LOGO_PUBLISH_DIR"
+  echo "=== $(date -Is) baku tarama bitti ==="
+} >> "$LOG" 2>&1 || true
