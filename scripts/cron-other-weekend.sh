@@ -11,5 +11,8 @@ mkdir -p logs
 # Varsayılan/placeholder logoları ayıkla ve yolları güncelle
 npm run logos:sync:write >> logs/logos.log 2>&1 || true
 
+# Yeni veri sonrası Jobing facet/listing cache ini tazele (ayarlıysa)
+[ -n "${JOBING_ARTISAN:-}" ] && php "$JOBING_ARTISAN" facets:refresh --warm >> logs/facets.log 2>&1 || true
+
 # Logoları canlı uygulamanın public/scraped-companies dizinine kopyala (ayarlıysa)
 [ -n "${COMPANY_LOGO_PUBLISH_DIR:-}" ] && ./scripts/publish-logos.sh "$COMPANY_LOGO_PUBLISH_DIR" || true
