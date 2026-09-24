@@ -123,11 +123,11 @@ export function inRegion(v: ListJob, region: Region) {
     return region === 'all' || (v.cities.length > 0 && (region === 'baku' ? v.cities.some(c => normalize(c) === 'baki') : v.cities.some(c => normalize(c) !== 'baki')));
 }
 
-export async function collectAdapter(adapter: Adapter, known: Set<number>, log = console.log, limitPerCategory = Infinity) {
+export async function collectAdapter(adapter: Adapter, known: Set<number>, log = console.log, limitPerCategory = Infinity, onBatch?: (jobs: ListJob[]) => Promise<void> | void) {
     if (limitPerCategory !== Infinity && (!Number.isInteger(limitPerCategory) || limitPerCategory < 1)) throw new Error('limit pozitif tam sayı olmalı.');
     const jobs = new Map<number, ListJob>(), skipped: object[] = [], scans: object[] = [], errors: string[] = [];
     for (const category of await adapter.categories()) {
-        const seen = new Set<number>();
+        const seen = new Set<number>(), categoryJobs: ListJob[] = [];
         let cursor: string | undefined, addedInCategory = 0, limitHit = false;
         try {
             for (let page = 1; page <= 1000; page++) {
@@ -142,6 +142,7 @@ export async function collectAdapter(adapter: Adapter, known: Set<number>, log =
                     const previous = jobs.get(job.id);
                     if (previous) previous.categoryNames = [...new Set([...previous.categoryNames, ...job.categoryNames])]; else {
                         jobs.set(job.id, job);
+                        categoryJobs.push(job);
                         addedInCategory++;
                     }
                 }
@@ -164,6 +165,8 @@ export async function collectAdapter(adapter: Adapter, known: Set<number>, log =
         } catch (e) {
             errors.push(`${category.name}: ${e}`);
         }
+        // Kategori biter bitmez toplananları yaz (kademeli insert).
+        if (onBatch && categoryJobs.length) await onBatch(categoryJobs);
     }
     if (jobs.size && adapter.enrich) errors.push(...await adapter.enrich([...jobs.values()], log));
     return {source: adapter.source, mode: 'list-only', vacancies: [...jobs.values()], scans, skipped, errors};
