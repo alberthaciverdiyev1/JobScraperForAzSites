@@ -36,7 +36,8 @@
     "logos:sync:write": "npm run build && node dist/tools/sync-logos.js --write",
     "dedupe": "npm run build && node dist/tools/dedupe-vacancies.js",
     "dedupe:write": "npm run build && node dist/tools/dedupe-vacancies.js --write",
-    "status:push": "npm run build && node dist/tools/push-scraper-status.js"
+    "status:push": "npm run build && node dist/tools/push-scraper-status.js",
+    "perms:fix": "bash scripts/fix-jobing-perms.sh"
   },
   "dependencies": {
     "cheerio": "^1.2.0",

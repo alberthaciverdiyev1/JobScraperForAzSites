@@ -64,6 +64,7 @@ npm run references:sync          # referans eşleme dosyalarını DB ile karşı
 npm run references:sync:write    # geçersiz eşlemeleri düzelt / doldurulabilirleri yaz
 npm run logos:sync               # şirket logolarını yerel indir/kayıt defteriyle eşle (kuru)
 npm run logos:sync:write         # logoları indir ve company_logo alanını yerel yola çevir
+npm run perms:fix                # Jobing (Laravel) storage izinlerini onar (root çalışma sonrası 500 önlenir)
 ```
 
 `src/app.ts` Express uygulamasını, `src/server.ts` sunucuyu içerir. Siteye özel indirme ve HTML ayrıştırma kodları `src/sites/<alan-adı>/` altında bulunur. On üç kaynağın (busy.az, 1is.az, work.az, jobsearch.az, boss.az, hellojob.az, smartjob.az, careera.az, position.az, jobu.az, jobnet.az, azvak.az, easyjob.az) scraper'ı da uygulanmıştır; kaynağa özel kullanım ve sınırlamalar için ilgili klasördeki `README.md` dosyasına bakın.
@@ -93,3 +94,30 @@ Aşağıdaki kaynaklar da liste taraması yapar; ortak sözleşme için `src/sit
 `--refresh` bilinen kayıtları yok sayıp tüm listeyi yeniden toplar (eksik alanları tazeler). `boss.az` yoğun istekte IP'yi kilitlediği için **gün boyu yavaş** taranır (`SCRAPE_INTERVAL_BOSS_MS`, varsayılan 60000 ms) ve `scrape:all` dışındadır; günde bir `npm run scrape:boss` ile çalıştırılır.
 
 Bölgesel toplu çalıştırıcı `npm run scrape:all` (`scrape:baku` / `scrape:other` kısayolları) on üç kaynağı sırayla çalıştırır ve eşzamanlı çalışmaları advisory lock ile önler. Otomatik zamanlama (cron) henüz etkin değildir; `config/scrape-schedule.json` içinde kullanıcı saatleri beklenmektedir.
+
+## Zamanlama (cron) ve izin onarımı
+
+Cron girişleri `scripts/crontab.txt` içinde tanımlıdır (`crontab scripts/crontab.txt`). Scraper işleri
+`scripts/cron-baku-daily.sh` (Bakü, günde 3), `scripts/cron-boss.sh` (boss.az, günde 1) ve
+`scripts/cron-other-weekend.sh` (diğer şehirler, Cumartesi) ile çalışır.
+
+Bu işler `root` kullanıcısıyla çalıştığı için `php artisan facets:refresh` gibi komutlar Jobing
+(Laravel) uygulamasının `storage/framework/cache` alanında **root sahipli** dosya/dizinler bırakır.
+Uygulama PHP-FPM ile `www-data` olarak çalıştığından bu yollara yazamaz ve ilgili sayfalar **HTTP 500**
+döner:
+
+```
+production.ERROR: file_put_contents(.../storage/framework/cache/data/..):
+Failed to open stream: Permission denied
+```
+
+Bunu önlemek için:
+
+1. `scripts/fix-jobing-perms.sh` her tarama sonrası (baku/boss/other cron'larının en sonunda) çalışır;
+   `storage`, `bootstrap/cache` ve `public/scraped-companies` ağacını `www-data:www-data` yapıp grup
+   yazılabilir hâle getirir. Elle: `npm run perms:fix`.
+   - `JOBING_APP` (varsayılan `/var/www/new-jobing`) ve `JOBING_OWNER` (varsayılan `www-data:www-data`) ile yapılandırılır.
+2. Bu işlerdeki `artisan` çağrıları `sudo -u www-data php ...` ile uygulama sahibi olarak çalıştırılır;
+   böylece root sahipli dosya hiç oluşmaz.
+3. Cron'daki bağımsız `facets:refresh` satırı da `www-data` olarak çalışır; güvenlik ağı olarak ayrıca
+   periyodik bir `fix-jobing-perms.sh` satırı bulunur.

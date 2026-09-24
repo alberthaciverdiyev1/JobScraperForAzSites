@@ -5,6 +5,17 @@ cd "$(dirname "$0")/.."
 export NVM_DIR="${NVM_DIR:-$HOME/.nvm}"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" && nvm use 22 >/dev/null 2>&1 || true
 
+# artisan komutlarını uygulama sahibiyle (www-data) çalıştır. Root çalıştırılırsa
+# storage altında root sahipli cache dosyaları oluşur ve sayfalar 500 verir.
+run_artisan() {
+  { [ -n "${JOBING_ARTISAN:-}" ] && [ -f "$JOBING_ARTISAN" ]; } || return 0
+  if [ "$(id -u)" -eq 0 ]; then
+    sudo -u www-data php "$JOBING_ARTISAN" "$@"
+  else
+    php "$JOBING_ARTISAN" "$@"
+  fi
+}
+
 mkdir -p logs
 {
   echo "=== $(date -Is) boss tarama başlıyor ==="
@@ -22,10 +33,10 @@ npm run dedupe:write >> logs/dedupe.log 2>&1 || true
 npm run logos:sync:write >> logs/logos.log 2>&1 || true
 
 # Yeni veri sonrası Jobing facet/listing cache ini tazele (ayarlıysa)
-[ -n "${JOBING_ARTISAN:-}" ] && php "$JOBING_ARTISAN" facets:refresh --warm >> logs/facets.log 2>&1 || true
-
-# Jobing storage izinlerini onar (root calisma sonrasi 500 onlenir)
-[ -n "${JOBING_APP:-/var/www/new-jobing}" ] && ./scripts/fix-jobing-perms.sh >> logs/perms.log 2>&1 || true
+run_artisan facets:refresh --warm >> logs/facets.log 2>&1 || true
 
 # Logoları canlı uygulamanın public/scraped-companies dizinine kopyala (ayarlıysa)
 [ -n "${COMPANY_LOGO_PUBLISH_DIR:-}" ] && ./scripts/publish-logos.sh "$COMPANY_LOGO_PUBLISH_DIR" || true
+
+# Jobing storage izinlerini onar (root calisma sonrasi 500 onlenir) — en sonda calisir
+[ -n "${JOBING_APP:-/var/www/new-jobing}" ] && ./scripts/fix-jobing-perms.sh >> logs/perms.log 2>&1 || true

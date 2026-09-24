@@ -1,10 +1,15 @@
 CRON_TZ=Asia/Baku
 # JobScraper zamanlama (crontab -e ile ekle ya da: crontab scripts/crontab.txt)
+# Jobing (Laravel) yolları — scriptler bu değişkenleri kullanır.
+JOBING_ARTISAN=/var/www/new-jobing/artisan
+JOBING_APP=/var/www/new-jobing
 # Bakü: günde 3 kez sabit saatlerde
 0 9,14,19 * * * /var/www/JobScraper/scripts/cron-baku-daily.sh
 # boss.az: günde 1 kez (gün boyu yavaş + retry)
 0 3 * * * /var/www/JobScraper/scripts/cron-boss.sh
 # Diğer şehirler: hafta sonu Cumartesi 21:00
 0 21 * * 6 /var/www/JobScraper/scripts/cron-other-weekend.sh
-# Jobing facet/listing cache warm (günde 3)
-0 */8 * * * php /var/www/new-jobing/artisan facets:refresh --warm >> /var/www/JobScraper/logs/facets-warm.log 2>&1
+# Jobing facet/listing cache warm (günde 3) — www-data olarak çalışır (root sahipli cache olmasın)
+0 */8 * * * sudo -u www-data php /var/www/new-jobing/artisan facets:refresh --warm >> /var/www/JobScraper/logs/facets-warm.log 2>&1
+# Güvenlik ağı: root çalışan işlerden sonra Jobing storage izinlerini onar
+10 */8 * * * /var/www/JobScraper/scripts/fix-jobing-perms.sh >> /var/www/JobScraper/logs/perms.log 2>&1
