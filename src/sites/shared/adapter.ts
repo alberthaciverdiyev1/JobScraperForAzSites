@@ -40,7 +40,7 @@ export interface Adapter {
 
     page(category: Filter, cursor?: string): Promise<{ jobs: ListJob[]; next?: string }>;
 
-    enrich?(jobs: ListJob[], log: (s: string) => void): Promise<string[]>;
+    enrich?(jobs: ListJob[], log: (s: string) => void, region?: Region): Promise<string[]>;
 }
 
 export type Region = 'all' | 'baku' | 'other';
@@ -123,7 +123,7 @@ export function inRegion(v: ListJob, region: Region) {
     return region === 'all' || (v.cities.length > 0 && (region === 'baku' ? v.cities.some(c => normalize(c) === 'baki') : v.cities.some(c => normalize(c) !== 'baki')));
 }
 
-export async function collectAdapter(adapter: Adapter, known: Set<number>, log = console.log, limitPerCategory = Infinity, onBatch?: (jobs: ListJob[]) => Promise<void> | void) {
+export async function collectAdapter(adapter: Adapter, known: Set<number>, log = console.log, limitPerCategory = Infinity, onBatch?: (jobs: ListJob[]) => Promise<void> | void, region: Region = 'all') {
     if (limitPerCategory !== Infinity && (!Number.isInteger(limitPerCategory) || limitPerCategory < 1)) throw new Error('limit pozitif tam sayı olmalı.');
     const jobs = new Map<number, ListJob>(), skipped: object[] = [], scans: object[] = [], errors: string[] = [];
     for (const category of await adapter.categories()) {
@@ -168,7 +168,7 @@ export async function collectAdapter(adapter: Adapter, known: Set<number>, log =
         // Kategori biter bitmez toplananları yaz (kademeli insert).
         if (onBatch && categoryJobs.length) await onBatch(categoryJobs);
     }
-    if (jobs.size && adapter.enrich) errors.push(...await adapter.enrich([...jobs.values()], log));
+    if (jobs.size && adapter.enrich) errors.push(...await adapter.enrich([...jobs.values()], log, region));
     return {source: adapter.source, mode: 'list-only', vacancies: [...jobs.values()], scans, skipped, errors};
 }
 

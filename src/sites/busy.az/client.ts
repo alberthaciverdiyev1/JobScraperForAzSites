@@ -104,7 +104,7 @@ export function listFields(item: SourceRecord): SourceRecord {
 
 // Gelişmiş arama filtreleri: deneyim (yıl bandı) ve şehir, liste filtresi üyeliğiyle tamamlanır.
 // Liste yeni->eski sıralı olduğundan eşik-öncesi sayfada durulur (sınırlı istek).
-export async function enrichAdvanced(vacancies: SourceRecord[], onProgress?: (message: string) => void) {
+export async function enrichAdvanced(vacancies: SourceRecord[], onProgress?: (message: string) => void, region: 'all'|'baku'|'other' = 'all') {
   const errors: { sourceId: number | string; error: string }[] = [];
   const byId = new Map(vacancies.map(v => [v.id, v]));
   const pageAll = async (query: (page: number) => string, apply: (v: SourceRecord, label: string) => void, label: string) => {
@@ -128,6 +128,7 @@ export async function enrichAdvanced(vacancies: SourceRecord[], onProgress?: (me
   const cities = (await getList('filter/cities')).data as SourceRecord[];
   for (const city of cities) {
     const name = String(city.title?.az ?? city.title?.en);
+    if (region !== 'all' && /bak/i.test(name) !== (region === 'baku')) continue;
     try {
       await pageAll(page => `vacancies?per_page=100&page=${page}&cities[]=${city.id}`, (v) => {
         if (!Array.isArray(v.city_rels)) v.city_rels = [];

@@ -31,7 +31,7 @@ export async function getList(params?: Record<string,string>) {
   return await (await requestList('1is.az',url)).text();
 }
 
-export async function collect(knownIds: Set<number>, log = console.log, fetchList = getList, limitPerCategory = Infinity) {
+export async function collect(knownIds: Set<number>, log = console.log, fetchList = getList, limitPerCategory = Infinity, region: 'all'|'baku'|'other' = 'all') {
   if(limitPerCategory!==Infinity&&(!Number.isInteger(limitPerCategory)||limitPerCategory<1)) throw new Error('limit pozitif tam sayı olmalı.');
   const companies = new Map<string,string>();
   const filters = parseList(await fetchList(),companies);
@@ -67,7 +67,10 @@ export async function collect(knownIds: Set<number>, log = console.log, fetchLis
     try { await scan('category',category,false); } catch(e) { errors.push(`category ${category.name}: ${e}`); }
   }
   if(vacancies.size) for(const [field,options] of [['city',filters.cities],['find_worker',filters.regimes]] as const) {
-    for(const option of options) try { await scan(field,option,true); } catch(e) { errors.push(`${field} ${option.name}: ${e}`); }
+    for(const option of options) {
+      if(field==='city'&&region!=='all'&&(/bak/i.test(option.name))!==(region==='baku')) continue;
+      try { await scan(field,option,true); } catch(e) { errors.push(`${field} ${option.name}: ${e}`); }
+    }
   }
   return {mode:'list-only',source:'1is.az',vacancies:[...vacancies.values()],filters,scans,errors,skipped};
 }

@@ -20,7 +20,7 @@ try {
   const refs=await loadReferences(pool),siteRefs=await loadSiteReferences('1is.az');
   const known=new Set<number>((await pool.query("SELECT slug FROM public.scraped_vacancies WHERE slug LIKE '1is-az-%'")).rows.map(r=>Number(/^1is-az-(\d+)-/.exec(r.slug)?.[1])));
   const file=args.indexOf('--file');
-  const batch=file>=0?JSON.parse(await readFile(resolve(args[file+1]!),'utf8')):await collect(known, console.log, undefined, limit);
+  const batch=file>=0?JSON.parse(await readFile(resolve(args[file+1]!),'utf8')):await collect(known, console.log, undefined, limit, region);
   if(batch.mode!=='list-only'||batch.source!=='1is.az'||!Array.isArray(batch.vacancies)) throw new Error('Geçersiz kaynak dosyası.');
   await writeFile(`${prefix}-source.json`,JSON.stringify(batch,null,2));
   const ready:ReturnType<typeof mapVacancy>[]=[],skipped:object[]=[];

@@ -52,7 +52,7 @@ export const adapter: Adapter = {
   },
   // Liste kaydı şehir vermez; `/api/locations` listesi ve `?location=<id>` filtresi
   // ID üyeliğiyle taranarak şehir tamamlanır. Detay endpoint'i çağrılmaz.
-  async enrich(jobs, log) {
+  async enrich(jobs, log, region = 'all') {
     const errors: string[] = [], byId = new Map(jobs.map(job => [job.id, job]));
     const locations = (await (await fetchList('azvak.az', new URL('/api/locations', api), 'application/json')).json()).data;
     if (!Array.isArray(locations)) return ['azvak.az konum listesi geçersiz.'];
@@ -60,6 +60,7 @@ export const adapter: Adapter = {
     // (en az sonuçlu sorgu) seçerek çelişkiyi önle.
     const best = new Map<number, {name: string; total: number}>();
     for (const location of locations) {
+      if (region !== 'all' && /bak/i.test(location.name) !== (region === 'baku')) continue;
       try {
         for (let page = 1; page <= 1000; page++) {
           const url = new URL('/api/vacancies', api);

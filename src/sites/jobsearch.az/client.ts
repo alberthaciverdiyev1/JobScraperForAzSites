@@ -13,9 +13,9 @@ export function parseJob(v:SourceRecord,category?:string):ListJob{
 export const adapter:Adapter={source:'jobsearch.az',key:'jobsearch-az',
  async categories(){const items:Filter[]=[];let url:string|undefined='/api-az/categories-az?hl=az';const seen=new Set<string>();while(url){if(seen.has(url))throw new Error('Kategori sayfalaması tekrarladı.');seen.add(url);const b=await get(url);if(!Array.isArray(b.items))throw new Error('Kategori listesi geçersiz.');for(const v of b.items){items.push({id:String(v.id),name:v.title});for(const child of v.children??[])items.push({id:String(child.id),name:child.title});}url=b.next||undefined;}return items;},
  async page(category,cursor){const b=await get(cursor??listUrl({categories:category.id}));if(!Array.isArray(b.items))throw new Error('İlan listesi geçersiz.');return {jobs:b.items.map((v:SourceRecord)=>parseJob(v,category.name)),next:b.next||undefined};},
- async enrich(jobs,log){const filters=await get('/api-az/filters?hl=az');const byId=new Map(jobs.map(j=>[j.id,j]));const errors:string[]=[];
+ async enrich(jobs,log,region='all'){const filters=await get('/api-az/filters?hl=az');const byId=new Map(jobs.map(j=>[j.id,j]));const errors:string[]=[];
   for(const field of ['location','job_type'] as const){if(!Array.isArray(filters[field])){errors.push(`Filtre eksik: ${field}`);continue;}
-   for(const option of filters[field]){try{let next:string|undefined=listUrl({[field]:String(option.value)});const seen=new Set<number>();let pages=0;
+   for(const option of filters[field]){if(field==='location'&&region!=='all'&&(/bak/i.test(option.title))!==(region==='baku'))continue;try{let next:string|undefined=listUrl({[field]:String(option.value)});const seen=new Set<number>();let pages=0;
     while(next){if(++pages>1000)throw new Error('Sayfa sınırı');const b=await get(next);if(!Array.isArray(b.items))throw new Error('Liste biçimi geçersiz.');
      for(const row of b.items){const job=byId.get(row.id);if(!job)continue;
       if(field==='location'){if(!job.cities.includes(option.title))job.cities.push(option.title);}

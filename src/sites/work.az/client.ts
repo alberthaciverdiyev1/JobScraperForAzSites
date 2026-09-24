@@ -54,7 +54,7 @@ export const adapter: Adapter = {
             next: b.hasNext ? String(page + 1) : undefined
         };
     },
-    async enrich(jobs, log) {
+    async enrich(jobs, log, region = 'all') {
         const errors: string[] = [];
         const byId = new Map(jobs.map(j => [j.id, j]));
         // Kıdem: kartta RANK_OF_DUTY yoksa `rankOfDutyIds` liste filtresi üyeliğiyle tamamlanır
@@ -80,6 +80,7 @@ export const adapter: Adapter = {
             log(`Work kıdem: ${rank.name}`);
         }
         for (const city of await values('CITY')) {
+            if (region !== 'all' && /bak/i.test(city.name) !== (region === 'baku')) continue;
             try {
                 const seen = new Set<number>();
                 for (let page = 1; page <= 1000; page++) {

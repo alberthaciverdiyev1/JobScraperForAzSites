@@ -58,7 +58,7 @@ export async function run(adapter: Adapter) {
         const file = args.indexOf('--file');
         const batch = file >= 0
             ? JSON.parse(await readFile(resolve(args[file + 1]!), 'utf8'))
-            : await collectAdapter(adapter, known, console.log, limit, write ? flush : undefined);
+            : await collectAdapter(adapter, known, console.log, limit, write ? flush : undefined, region);
         if (batch.source !== adapter.source || batch.mode !== 'list-only' || !Array.isArray(batch.vacancies)) throw new Error('Geçersiz kaynak dosyası.');
         await writeFile(`${prefix}-source.json`, JSON.stringify(batch, null, 2));
 

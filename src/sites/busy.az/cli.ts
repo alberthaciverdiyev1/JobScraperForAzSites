@@ -54,7 +54,7 @@ try {
     await writeFile(`${directory}/${runId}-source.json`, JSON.stringify(batch, null, 2));
     const readyIds = new Set(prepareBatch(batch.vacancies, refs, mapping, siteRefs).ready.map(v => v.sourceId));
     const enrichmentErrors = await enrichEmploymentTypes(batch.vacancies.filter((v: { id: number }) => readyIds.has(v.id)), message => console.log(message));
-    const advancedErrors = await enrichAdvanced(batch.vacancies.filter((v: { id: number }) => readyIds.has(v.id)), message => console.log(message));
+    const advancedErrors = await enrichAdvanced(batch.vacancies.filter((v: { id: number }) => readyIds.has(v.id)), message => console.log(message), region);
     batch.errors = [...(batch.errors ?? []), ...enrichmentErrors, ...advancedErrors.map(e => `${e.sourceId}: ${e.error}`)];
   }
   if (!file) await writeFile(`${directory}/${runId}-source.json`, JSON.stringify(batch, null, 2));
