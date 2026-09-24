@@ -5,6 +5,13 @@ cd "$(dirname "$0")/.."
 export NVM_DIR="${NVM_DIR:-$HOME/.nvm}"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" && nvm use 22 >/dev/null 2>&1 || true
 
+# .env'deki ayarları bash'e yükle (publish-logos ve artisan yolu için) ve varsayılanları belirle.
+. "$(dirname "$0")/lib-env.sh"
+load_env COMPANY_LOGO_DIR COMPANY_LOGO_URL_BASE COMPANY_LOGO_PUBLISH_DIR JOBING_APP JOBING_ARTISAN
+: "${JOBING_APP:=/var/www/new-jobing}"
+: "${COMPANY_LOGO_PUBLISH_DIR:=${JOBING_APP}/storage/app/public/scraped-companies}"
+export JOBING_APP COMPANY_LOGO_DIR COMPANY_LOGO_URL_BASE COMPANY_LOGO_PUBLISH_DIR JOBING_ARTISAN
+
 # artisan komutlarını uygulama sahibiyle (www-data) çalıştır. Root çalıştırılırsa
 # storage altında root sahipli cache dosyaları oluşur ve sayfalar 500 verir.
 run_artisan() {
@@ -35,8 +42,8 @@ npm run logos:sync:write >> logs/logos.log 2>&1 || true
 # Yeni veri sonrası Jobing facet/listing cache ini tazele (ayarlıysa)
 run_artisan facets:refresh --warm >> logs/facets.log 2>&1 || true
 
-# Logoları canlı uygulamanın public/scraped-companies dizinine kopyala (ayarlıysa)
-[ -n "${COMPANY_LOGO_PUBLISH_DIR:-}" ] && ./scripts/publish-logos.sh "$COMPANY_LOGO_PUBLISH_DIR" || true
+# Yeni logoları canlı uygulamanın public dizinine kopyala (kırık görselleri önler)
+./scripts/publish-logos.sh "$COMPANY_LOGO_PUBLISH_DIR" >> logs/logos-publish.log 2>&1 || true
 
 # Jobing storage izinlerini onar (root calisma sonrasi 500 onlenir) — en sonda calisir
-[ -n "${JOBING_APP:-/var/www/new-jobing}" ] && ./scripts/fix-jobing-perms.sh >> logs/perms.log 2>&1 || true
+./scripts/fix-jobing-perms.sh >> logs/perms.log 2>&1 || true

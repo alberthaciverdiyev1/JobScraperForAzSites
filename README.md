@@ -121,3 +121,18 @@ Bunu önlemek için:
    böylece root sahipli dosya hiç oluşmaz.
 3. Cron'daki bağımsız `facets:refresh` satırı da `www-data` olarak çalışır; güvenlik ağı olarak ayrıca
    periyodik bir `fix-jobing-perms.sh` satırı bulunur.
+
+## Şirket logoları (görsel akışı)
+
+Logo dosyalarının canlıda görünmesi iki adıma bağlıdır:
+
+1. `npm run logos:sync:write` logoları **kaynak** dizine indirir (`COMPANY_LOGO_DIR`, varsayılan
+   `data/company-logos`) ve DB'de `company_logo = scraped-companies/<dosya>` yazar.
+2. `scripts/publish-logos.sh` kaynaktaki dosyaları **web'e servis edilen** dizine kopyalar
+   (`COMPANY_LOGO_PUBLISH_DIR`, varsayılan `<JOBING_APP>/storage/app/public/scraped-companies`;
+   URL `/storage/scraped-companies/<dosya>`).
+
+`COMPANY_LOGO_*` ayarları `.env` içinde tanımlıdır, ancak `.env`'i yalnızca node/dotenv okur.
+Cron scriptleri saf-bash adımlarının bu değişkenleri görebilmesi için `scripts/lib-env.sh` ile
+`.env`'i güvenli biçimde yükler. Bu yükleme olmadan `COMPANY_LOGO_PUBLISH_DIR` boş kalır,
+`publish-logos.sh` sessizce atlanır ve yeni logolar canlıda **404** verir (görsel görünmez).
