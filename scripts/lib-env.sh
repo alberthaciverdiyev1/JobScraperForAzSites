@@ -24,11 +24,16 @@ env_value() {
 }
 
 # Verilen anahtarları, ortamda yoksa .env'den yükleyip export eder.
+# Not: çağıran scriptler `set -e` ile çalışır; boş anahtar (örn. .env'de olmayan
+# JOBING_ARTISAN) fonksiyonun 1 döndürmesine yol açıp scripti öldürmemeli.
 load_env() {
   local key value
   for key in "$@"; do
     [ -n "${!key:-}" ] && continue
     value="$(env_value "$key")"
-    [ -n "$value" ] && export "$key=$value"
+    if [ -n "$value" ]; then
+      export "$key=$value"
+    fi
   done
+  return 0
 }
