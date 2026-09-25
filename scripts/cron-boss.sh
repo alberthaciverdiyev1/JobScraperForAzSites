@@ -26,7 +26,7 @@ SCRAPE_OUT=""
   echo "=== $(date -Is) boss tarama başlıyor ==="
   SCRAPE_OUT="$(npm run scrape:boss -- --region all --write 2>&1)"; printf '%s\n' "$SCRAPE_OUT"
   echo "=== $(date -Is) boss tarama bitti ==="
-} >> logs/boss-cron.log 2>&1
+} >> logs/boss-cron.log 2>&1 || true
 
 # boss xülasəsini Telegram-a gönder.
 ./scripts/notify-scrape.sh "boss.az taraması" "$SCRAPE_OUT" >> logs/notify.log 2>&1 || true
