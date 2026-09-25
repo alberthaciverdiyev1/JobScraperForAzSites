@@ -24,10 +24,9 @@ run_artisan() {
 
 mkdir -p logs
 LOG=logs/baku-cron.log
-SCRAPE_OUT=""
 {
   echo "=== $(date -Is) baku tarama başlıyor ==="
-  SCRAPE_OUT="$(npm run scrape:baku 2>&1)"; printf '%s\n' "$SCRAPE_OUT"
+  npm run scrape:baku
   npm run status:push
   npm run logos:sync:write
   run_artisan facets:refresh --warm

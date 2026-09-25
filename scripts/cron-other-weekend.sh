@@ -21,10 +21,9 @@ run_artisan() {
 }
 
 mkdir -p logs
-SCRAPE_OUT=""
 {
   echo "=== $(date -Is) diğer şehirler (region=other) ==="
-  SCRAPE_OUT="$(npm run scrape:other 2>&1)"; printf '%s\n' "$SCRAPE_OUT"
+  npm run scrape:other
 } >> logs/other-cron.log 2>&1 || true
 
 
