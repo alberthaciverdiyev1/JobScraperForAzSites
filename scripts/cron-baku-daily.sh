@@ -34,8 +34,6 @@ SCRAPE_OUT=""
   echo "=== $(date -Is) baku tarama bitti ==="
 } >> "$LOG" 2>&1 || true
 
-# Tarama bitdikdən sonra xülasəni Telegram-a gönder (neçə ilan çəkildi).
-./scripts/notify-scrape.sh "Bakı taraması" "$SCRAPE_OUT" >> logs/notify.log 2>&1 || true
 
 # Yeni logoları canlı uygulamanın public dizinine kopyala.
 ./scripts/publish-logos.sh "$COMPANY_LOGO_PUBLISH_DIR" >> logs/logos-publish.log 2>&1 || true

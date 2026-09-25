@@ -27,8 +27,6 @@ SCRAPE_OUT=""
   SCRAPE_OUT="$(npm run scrape:other 2>&1)"; printf '%s\n' "$SCRAPE_OUT"
 } >> logs/other-cron.log 2>&1 || true
 
-# Diğer şehirler xülasəsini Telegram-a gönder.
-./scripts/notify-scrape.sh "Digər şəhərlər taraması" "$SCRAPE_OUT" >> logs/notify.log 2>&1 || true
 
 npm run status:push >> logs/status.log 2>&1 || true
 npm run logos:sync:write >> logs/logos.log 2>&1 || true
