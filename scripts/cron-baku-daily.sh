@@ -12,8 +12,7 @@ load_env COMPANY_LOGO_DIR COMPANY_LOGO_URL_BASE COMPANY_LOGO_PUBLISH_DIR JOBING_
 : "${COMPANY_LOGO_PUBLISH_DIR:=${JOBING_APP}/storage/app/public/scraped-companies}"
 export JOBING_APP COMPANY_LOGO_DIR COMPANY_LOGO_URL_BASE COMPANY_LOGO_PUBLISH_DIR JOBING_ARTISAN
 
-# artisan komutlarını uygulama sahibiyle (www-data) çalıştır. Root çalıştırılırsa
-# storage altında root sahipli cache dosyaları oluşur ve sayfalar 500 verir.
+# artisan komutlarını uygulama sahibiyle (www-data) çalıştır.
 run_artisan() {
   { [ -n "${JOBING_ARTISAN:-}" ] && [ -f "$JOBING_ARTISAN" ]; } || return 0
   if [ "$(id -u)" -eq 0 ]; then
@@ -25,19 +24,21 @@ run_artisan() {
 
 mkdir -p logs
 LOG=logs/baku-cron.log
+SCRAPE_OUT=""
 {
   echo "=== $(date -Is) baku tarama başlıyor ==="
-  npm run scrape:baku
+  SCRAPE_OUT="$(npm run scrape:baku 2>&1)"; printf '%s\n' "$SCRAPE_OUT"
   npm run status:push
   npm run logos:sync:write
-  # NOT: dedupe şimdilik durduruldu (mükerrerlik artık importBatch içinde kaynaklar arası
-  # kontrol ediliyor). Elle çalıştırmak için: npm run dedupe:write
   run_artisan facets:refresh --warm
   echo "=== $(date -Is) baku tarama bitti ==="
 } >> "$LOG" 2>&1 || true
 
-# Yeni logoları canlı uygulamanın public dizinine kopyala (kırık görselleri önler).
+# Tarama bitdikdən sonra xülasəni Telegram-a gönder (neçə ilan çəkildi).
+./scripts/notify-scrape.sh "Bakı taraması" "$SCRAPE_OUT" >> logs/notify.log 2>&1 || true
+
+# Yeni logoları canlı uygulamanın public dizinine kopyala.
 ./scripts/publish-logos.sh "$COMPANY_LOGO_PUBLISH_DIR" >> logs/logos-publish.log 2>&1 || true
 
-# Tarama sonrası Jobing storage izinlerini onar (root çalışma kaynaklı 500 önlenir).
+# Tarama sonrası Jobing storage izinlerini onar.
 ./scripts/fix-jobing-perms.sh >> logs/perms.log 2>&1 || true
