@@ -27,6 +27,25 @@ export async function run(adapter: Adapter) {
         const prefix = `${directory}/${new Date().toISOString().replace(/[:.]/g, '-')}`;
         // --refresh: bilinen kayıtları yok say, tüm listeyi yeniden topla.
         const known = args.includes('--refresh') ? new Set<number>() : new Set<number>((await pool.query('SELECT slug FROM public.scraped_vacancies WHERE slug LIKE $1', [`${adapter.key}-%`])).rows.map(r => Number(r.slug.slice(adapter.key.length + 1).split('-')[0])));
+        // Artıq mövcud elanlar (URL və ya şirkət+başlıq+şəhər) təkrar çəkilməsin/emal edilməsin.
+        // --refresh verilərsə bu yoxlama söndürülür (məcburi tam yenidən toplama).
+        let isKnownJob: ((job: ListJob) => boolean) | undefined;
+        if (!args.includes('--refresh')) {
+            const rows = (await pool.query('SELECT redirect_url, lower(btrim(company_name)) c, lower(btrim(title)) t, coalesce(city_id, -1) ci FROM public.scraped_vacancies')).rows as {redirect_url: string | null; c: string; t: string; ci: number}[];
+            const knownUrls = new Set<string>(), knownKeys = new Set<string>();
+            const keyOf = (c: string, t: string, ci: unknown) => `${c.toLowerCase().trim()}|${t.toLowerCase().trim()}|${Number(ci) || -1}`;
+            for (const r of rows) {
+                if (r.redirect_url) knownUrls.add(r.redirect_url);
+                knownKeys.add(`${r.c}|${r.t}|${r.ci}`);
+            }
+            isKnownJob = (job: ListJob): boolean => {
+                if (job.url && knownUrls.has(job.url)) return true;
+                try {
+                    const m = mapListJob(job, refs, adapter.key, siteRefs);
+                    return knownKeys.has(keyOf(m.companyName, m.title, m.cityId));
+                } catch { return false; }
+            };
+        }
         if (write) {
             writer = new Pool({
                 host: process.env.DB_HOST, port: Number(process.env.DB_PORT), database: process.env.DB_DATABASE,
@@ -58,7 +77,7 @@ export async function run(adapter: Adapter) {
         const file = args.indexOf('--file');
         const batch = file >= 0
             ? JSON.parse(await readFile(resolve(args[file + 1]!), 'utf8'))
-            : await collectAdapter(adapter, known, console.log, limit, write ? flush : undefined, region);
+            : await collectAdapter(adapter, known, console.log, limit, write ? flush : undefined, region, isKnownJob);
         if (batch.source !== adapter.source || batch.mode !== 'list-only' || !Array.isArray(batch.vacancies)) throw new Error('Geçersiz kaynak dosyası.');
         await writeFile(`${prefix}-source.json`, JSON.stringify(batch, null, 2));
 

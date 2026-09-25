@@ -123,7 +123,7 @@ export function inRegion(v: ListJob, region: Region) {
     return region === 'all' || (v.cities.length > 0 && (region === 'baku' ? v.cities.some(c => normalize(c) === 'baki') : v.cities.some(c => normalize(c) !== 'baki')));
 }
 
-export async function collectAdapter(adapter: Adapter, known: Set<number>, log = console.log, limitPerCategory = Infinity, onBatch?: (jobs: ListJob[]) => Promise<void> | void, region: Region = 'all') {
+export async function collectAdapter(adapter: Adapter, known: Set<number>, log = console.log, limitPerCategory = Infinity, onBatch?: (jobs: ListJob[]) => Promise<void> | void, region: Region = 'all', isKnownJob?: (job: ListJob) => boolean) {
     if (limitPerCategory !== Infinity && (!Number.isInteger(limitPerCategory) || limitPerCategory < 1)) throw new Error('limit pozitif tam sayı olmalı.');
     const jobs = new Map<number, ListJob>(), skipped: object[] = [], scans: object[] = [], errors: string[] = [];
     for (const category of await adapter.categories()) {
@@ -132,13 +132,20 @@ export async function collectAdapter(adapter: Adapter, known: Set<number>, log =
         try {
             for (let page = 1; page <= 1000; page++) {
                 const result = await adapter.page(category, cursor), ordinary = result.jobs.filter(j => !j.premium);
-                const stop = pageStop((ordinary.length ? ordinary : result.jobs).map(j => j.id), known, seen);
+                // İçerik/URL bazlı "artıq mövcuddur" yoxlaması: bu səhifədə əvvəlcədən bilinən
+                // elanlar üçün ayrıca yoxlama aparılır ki, tamamilə köhnə səhifədə sayfalama dayansın.
+                const predKnown = new Set<number>();
+                if (isKnownJob) for (const j of result.jobs) { if (!known.has(j.id) && isKnownJob(j)) predKnown.add(j.id); }
+                const pageJobs = ordinary.length ? ordinary : result.jobs;
+                const stop = pageJobs.length && pageJobs.every(j => known.has(j.id) || predKnown.has(j.id))
+                    ? 'all-known'
+                    : pageStop(pageJobs.map(j => j.id), known, seen);
                 for (const job of result.jobs) {
                     if (isBeforeCutoff(job.published) || job.active === false) {
                         skipped.push({id: job.id, reason: job.active === false ? 'inactive' : 'before-cutoff'});
                         continue;
                     }
-                    if (known.has(job.id)) continue;
+                    if (known.has(job.id) || predKnown.has(job.id)) { known.add(job.id); continue; }
                     const previous = jobs.get(job.id);
                     if (previous) previous.categoryNames = [...new Set([...previous.categoryNames, ...job.categoryNames])]; else {
                         jobs.set(job.id, job);
