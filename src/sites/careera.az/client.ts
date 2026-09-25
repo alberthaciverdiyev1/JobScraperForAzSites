@@ -37,13 +37,17 @@ export function parseList(html: string): ParsedList {
     const id = Number(card.attr('data-job-id'));
     const slug = card.attr('data-job-slug');
     if (!Number.isSafeInteger(id) || id <= 0) return;
+    // Kart görseli bazen şirket logosu değildir: iş görseli (/storage/jobs/...) veya site
+    // placeholder'ı (logo-2.svg) olabilir. Yalnızca gerçek şirket logosunu (/storage/companies/...)
+    // logo olarak kabul et; aksi halde null bırak.
+    const image = card.find('.card-job-top--image img').attr('src') ?? null;
     jobs.push({
       id,
       title: card.find('.card-job-top--info-title a').first().text().trim(),
       url: `${origin}/job/${encodeURIComponent(slug ?? String(id))}`,
       companyName: card.find('.card-job-top--company').first().text().trim(),
       companyId: 0,
-      logo: card.find('.card-job-top--image img').attr('src') ?? null,
+      logo: image && /\/storage\/companies\//i.test(image) ? image : null,
       published: null,
       categoryNames: [], cities: [], employment: [], workplaces: [], levels: [],
       salaryMin: null, salaryMax: null,
