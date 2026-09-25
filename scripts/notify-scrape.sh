@@ -4,13 +4,14 @@
 set -euo pipefail
 LABEL="${1:-tarama}"
 OUT="${2:-}"
-num() { printf '%s\n' "$OUT" | grep -oE "\"$1\":[0-9]+" | tail -1 | cut -d: -f2; }
+# Diqqət: sahə olmaya bilər (məs. run-all-da "ready" yoxdur) — hər halda 0 qaytar.
+num() { printf '%s\n' "$OUT" | grep -oE "\"$1\":[0-9]+" 2>/dev/null | tail -1 | cut -d: -f2 || true; }
 
-fetched="$(num fetched)"; inserted="$(num inserted)"; ready="$(num ready)"
-dup="$(num duplicates)"; skipped="$(num skipped)"; errors="$(num errors)"
+fetched="$(num fetched || true)"; inserted="$(num inserted || true)"; ready="$(num ready || true)"
+dup="$(num duplicates || true)"; skipped="$(num skipped || true)"; errors="$(num errors || true)"
 
 if [ -z "$fetched" ]; then
-  err="$(printf '%s\n' "$OUT" | grep -oE 'Error:[^"]{0,120}' | tail -1 || true)"
+  err="$(printf '%s\n' "$OUT" | grep -oE 'Error:[^"]{0,120}' 2>/dev/null | tail -1 || true)"
   msg="⚠️ <b>${LABEL}</b> bitdi, amma xülasə oxunmadı (xəta ola bilər)."
   [ -n "$err" ] && msg="${msg}
 <code>${err}</code>"
