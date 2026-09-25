@@ -51,9 +51,17 @@ export async function importBatch(pool: Pool, jobs: (MappedVacancy & {
             // Logo yerel olarak çözülür: kayıt defterinde varsa yeniden kullanılır, yoksa indirilir.
             // Böylece hiçbir kayıt uzak görsel URL'i tutmaz.
             const companyLogo = await resolveCompanyLogo(job.companyName, job.companyLogo ?? null, source);
+            // Mükerrer: aynı kaynak (redirect_url/slug) VEYA kaynaklar arası aynı ilan
+            // (şirket + başlık + şehir). Böylece aynı ilan başka siteden geldiğinde yeniden
+            // eklenmez; bu, harici dedupe adımı olmadan da yinelenmeyi önler.
             const existing = await client.query<{ id: string }>(
-                'SELECT id FROM public.scraped_vacancies WHERE redirect_url = $1 OR slug = $2 OR slug LIKE $3 ORDER BY id LIMIT 1',
-                [job.sourceUrl, job.slug, `${source}-${job.sourceId}-%`]);
+                `SELECT id FROM public.scraped_vacancies
+                 WHERE redirect_url = $1 OR slug = $2 OR slug LIKE $3
+                    OR (lower(btrim(company_name)) = lower(btrim($4))
+                        AND lower(btrim(title)) = lower(btrim($5))
+                        AND coalesce(city_id, -1) = coalesce($6::bigint, -1))
+                 ORDER BY id LIMIT 1`,
+                [job.sourceUrl, job.slug, `${source}-${job.sourceId}-%`, job.companyName, job.title, job.cityId]);
             if (existing.rows[0]) {
                 // Eksik referansları doldur; uzak logo URL'ini yerel yolla değiştir.
                 await client.query(`UPDATE public.scraped_vacancies

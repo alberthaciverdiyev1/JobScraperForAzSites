@@ -29,8 +29,9 @@ LOG=logs/baku-cron.log
   echo "=== $(date -Is) baku tarama başlıyor ==="
   npm run scrape:baku
   npm run status:push
-  npm run dedupe:write
   npm run logos:sync:write
+  # NOT: dedupe şimdilik durduruldu (mükerrerlik artık importBatch içinde kaynaklar arası
+  # kontrol ediliyor). Elle çalıştırmak için: npm run dedupe:write
   run_artisan facets:refresh --warm
   echo "=== $(date -Is) baku tarama bitti ==="
 } >> "$LOG" 2>&1 || true

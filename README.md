@@ -136,3 +136,19 @@ Logo dosyalarının canlıda görünmesi iki adıma bağlıdır:
 Cron scriptleri saf-bash adımlarının bu değişkenleri görebilmesi için `scripts/lib-env.sh` ile
 `.env`'i güvenli biçimde yükler. Bu yükleme olmadan `COMPANY_LOGO_PUBLISH_DIR` boş kalır,
 `publish-logos.sh` sessizce atlanır ve yeni logolar canlıda **404** verir (görsel görünmez).
+
+## Mükerrer (kopya) ilan politikası
+
+Aynı ilanın birden çok sitede yayınlanması yaygındır. Mükerrer kontrolü artık **iki katmanlı**:
+
+1. **Kaynak içi (import anında):** `importBatch`, `redirect_url` / `slug` / aynı kaynak slug öneki
+   ile eşleşen kaydı "mükerrer" sayıp yeniden eklemez, yalnızca eksik referansları tamamlar.
+2. **Kaynaklar arası (import anında):** Aynı **şirket + başlık + şehir** (büyük/küçük harf duyarsız)
+   kombinasyonu zaten varsa yeni kayıt **eklenmez** (mevcut kayıt güncellenir). Böylece bir ilan
+   başka siteden geldiğinde veritabanı yinelenmez.
+
+`npm run dedupe` / `dedupe:write` aracı (var olan satırları silen toplu temizlik) **şimdilik cron'dan
+çıkarıldı**; mükerrerlik artık ekleme anında engellendiği için gereksiz. Elle gerekirse çalıştırılabilir.
+
+> Not: `dedupe` aracı, aynı grupta **en eski** kaydı tutup en yenisini siler; bu yüzden taze bir
+> yeniden yayını kaybetme riski taşır. Cron'dan çıkarılmasının nedeni budur.

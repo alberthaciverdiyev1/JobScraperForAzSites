@@ -29,8 +29,8 @@ mkdir -p logs
 # Scraper durumunu Jobing admini icin DB ye yaz
 npm run status:push >> logs/status.log 2>&1 || true
 
-# Mükerrer ilanları sil (aynı URL veya şirket+başlık+şehir)
-npm run dedupe:write >> logs/dedupe.log 2>&1 || true
+# NOT: dedupe şimdilik durduruldu (mükerrerlik importBatch içinde kaynaklar arası kontrol ediliyor).
+# Elle çalıştırmak için: npm run dedupe:write >> logs/dedupe.log 2>&1
 
 # Varsayılan/placeholder logoları ayıkla ve yolları güncelle
 npm run logos:sync:write >> logs/logos.log 2>&1 || true
