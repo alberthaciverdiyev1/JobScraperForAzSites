@@ -49,7 +49,7 @@ try{
    // Bu kaynaktan sonra bildiriş: neçə elan çəkildi.
    const fetched=lastNum(buf,'fetched'),inserted=lastNum(buf,'inserted'),dup=lastNum(buf,'duplicates');
    if(code===0&&fetched!==undefined){
-     await notify(`📥 <b>${source}</b> (${regionLabel}): <b>${fetched}</b> elan çəkildi, ${inserted??0} yeni${dup?`, ${dup} mükerrer`:''}`);
+     await notify(`📥 <b>${source}</b> (${regionLabel}): <b>${fetched}</b> elan çəkildi, ${inserted??0} yeni${dup?`, ${dup} təkrar`:''}`);
    }else{
      const err=(buf.match(/Error:[^\n"]{0,140}/)??[`exit ${code}`])[0];
      await notify(`⚠️ <b>${source}</b> (${regionLabel}): xəta — <code>${err}</code>`);

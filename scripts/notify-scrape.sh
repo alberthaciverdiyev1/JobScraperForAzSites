@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Scrape çıxışının xülasəsini Telegram-a gönderir: neçə ilan çəkildi / əlavə olundu.
+# Scrape çıxışının xülasəsini Telegram-a göndərir: neçə elan çəkildi / əlavə olundu.
 # İstifadə: ./scripts/notify-scrape.sh "<etiket>" "<scrape çıxışı>"
 set -euo pipefail
 LABEL="${1:-tarama}"
@@ -17,12 +17,12 @@ if [ -z "$fetched" ]; then
 <code>${err}</code>"
 else
   msg="🗒 <b>${LABEL} — bitdi</b>
-📥 Çekilen ilan: <b>${fetched}</b>"
+📥 Çəkilən elan: <b>${fetched}</b>"
   [ -n "$ready" ] && msg="${msg}
 ✅ Hazır: ${ready}"
   msg="${msg}
 🆕 Yeni əlavə: <b>${inserted:-0}</b>
-♻️ Mükerrer: ${dup:-0}
+♻️ Təkrar: ${dup:-0}
 ⏭ Keçilən: ${skipped:-0}"
   if [ -n "$errors" ] && [ "$errors" != "0" ]; then msg="${msg}
 ⚠️ Xəta sayı: ${errors}"; fi
